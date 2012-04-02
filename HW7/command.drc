@@ -1,0 +1,19 @@
+Release 13.2 Drc O.61xd (nt64)
+Copyright (c) 1995-2011 Xilinx, Inc.  All rights reserved.
+
+Sun Apr 01 16:11:10 2012
+
+drc -z command.ncd command.pcf
+
+WARNING:PhysDesignRules:372 - Gated clock. Clock net TXN/PHYSICAL/clk_inv is
+   sourced by a combinatorial pin. This is not good design practice. Use the CE
+   pin to control the loading of data into the flip-flop.
+WARNING:PhysDesignRules:372 - Gated clock. Clock net CONTROL<13> is sourced by a
+   combinatorial pin. This is not good design practice. Use the CE pin to
+   control the loading of data into the flip-flop.
+WARNING:PhysDesignRules:774 - Unexpected DCM configuration. CLKOUT_PHASE_SHIFT
+   is not configured VARIABLE for comp CLK_DIV/DCM_SP_INST. The PSEN pin is
+   connected to an active signal. The PSEN pin should be connected to GND to
+   guarantee the expected operation.
+DRC detected 0 errors and 3 warnings.  Please see the previously displayed
+individual error or warning messages for more details.

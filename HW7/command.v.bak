@@ -1,0 +1,131 @@
+module command(
+  input wire CCLK,
+  input wire BTN0,  // Btn north
+  input wire BTN1,  // Btn east
+  input wire SPIMISO,
+  input wire SW0,
+  
+  output reg [7:0] LED,
+  output wire SPISCK,
+  output wire SPIMOSI,
+  output wire SFCE,
+  output wire SPISF,
+  output wire FPGAIB,
+  output wire AMPCS,
+  output wire DACCS,
+  output wire ADCON,
+  output wire LCDE,
+  output wire LCDRS,
+  output wire LCDRW,
+  output wire [3:0] LCDDAT
+  );
+
+localparam IDLE = 2'b00;
+localparam WAIT_GET_RDID_DONE = 2'b01;
+localparam SEND_BYTE = 2'b10;
+localparam WAIT_DONE = 2'b11;
+
+wire          CLKDV_OUT;      // divided clock, output of DCM
+reg           do_write_data;
+reg  [7:0]    data_to_write;
+wire          do_set_dd_ram_addr;
+wire [6:0]    dd_ram_addr;
+wire          send_data_done;
+wire          get_rdid_oneshot;
+wire          get_rdid_done;
+reg  [3:0]    count;          // controls where the cursor is
+
+reg [1:0] current_state, next_state;
+
+always @(negedge CLKDV_OUT or posedge BTN0) begin
+  if(BTN0)  current_state <= IDLE;
+  else      current_state <= next_state;
+end
+
+always @(posedge CLKDV_OUT or posedge BTN0) begin
+  if(BTN0) count <= 4'b2; //represents how many characters to print...?
+  else begin
+  case(current_state)
+    IDLE: begin
+      do_write_data <= 1'b0;
+      data_to_write <= 0;
+      if(get_rdid_oneshot) begin
+        next_state <= WAIT_GET_RDID_DONE;
+      end else next_state <= IDLE;
+      end
+      
+    WAIT_GET_RDID_DONE: begin
+      if(get_rdid_done) next_state <= SEND_BYTE;
+      else next_state <= WAIT_GET_RDID_DONE;
+      end
+      
+    SEND_BYTE: begin
+      if(count!=0) begin
+          next_state <= WAIT_DONE;
+          do_write_data <= 1'b1;
+        end else begin
+          next_state <= SEND_BYTE;
+          do_write_data <= 1'b0;
+        end
+      end
+      
+    WAIT_DONE: begin
+      if(send_data_done) begin
+        next_state <= SEND_BYTE;
+        count <= count - 1;
+      end else begin
+        next_state <= WAIT_DONE;
+        data_to_write <= "C";
+        end
+      end
+  endcase
+  end
+end
+
+clock_divider_tb CLK_DIV_TB(
+  .clk_in(CCLK),
+  .reset(BTN0),
+  .clk_out(CLKDV_OUT)
+);
+
+transaction TXN(
+  .clk(CLKDV_OUT),
+  .reset(BTN0),
+  .do_write_data(do_write_data),
+  .data_to_write(data_to_write),
+  .do_set_dd_ram_addr(do_set_dd_ram_addr),
+  .dd_ram_addr(dd_ram_addr),
+  .LCDE_q(LCDE),
+  .LCDRS_q(LCDRS),
+  .LCDRW_q(LCDRW),
+  .LCDDAT_q(LCDDAT),
+  .send_data_done(send_data_done)  
+);
+
+spi_master_flash SPI_FLASH(
+  .get_rdid(get_rdid_oneshot),
+  .get_rdid_done(get_rdid_done),
+  .reset(BTN0),
+  .clk(CLKDV_OUT),
+  .chipsel(SPISF),
+  .spiclk(SPISCK),
+  .spimosi(SPIMOSI),
+  .spimiso(SPIMISO)
+);
+
+debounce_sync BTN1_debouncer(
+  .clock(CLKDV_OUT),
+  .reset(BTN0),
+  .async_in(BTN1),
+  .sync_out(BTN1_debounced)
+);
+oneshot BTN1_oneshotter(
+  .reset(BTN0),                           // button north
+  .clock(CLKDV_OUT),                      // comes from the clock divider
+  .get_debounce(BTN1_debounced),          // comes from the BTN1_debouncer
+  .get_oneshot(get_rdid_oneshot)          // output is used in command layer
+);
+
+
+
+endmodule

@@ -1,0 +1,123 @@
+{Z:/ECE 4211/HW7/acdc_check.v} {1 {vlog -work work -vopt {+incdir+Z:/ECE 4211/HW7} -nocovercells {Z:/ECE 4211/HW7/acdc_check.v}
+Model Technology ModelSim SE-64 vlog 10.0b Compiler 2011.05 May  5 2011
+-- Compiling module acdc_check
+
+Top level modules:
+	acdc_check
+
+} {} {}} {Z:/ECE 4211/HW7/oneshot.v} {1 {vlog -work work -vopt -nocovercells {Z:/ECE 4211/HW7/oneshot.v}
+Model Technology ModelSim SE-64 vlog 10.0b Compiler 2011.05 May  5 2011
+-- Compiling module oneshot
+
+Top level modules:
+	oneshot
+
+} {} {}} {Z:/ECE 4211/HW7/parameter.v} {1 {vlog -work work -vopt -nocovercells {Z:/ECE 4211/HW7/parameter.v}
+Model Technology ModelSim SE-64 vlog 10.0b Compiler 2011.05 May  5 2011
+
+} {} {}} {Z:/ECE 4211/HW7/internal_logic.v} {1 {vlog -work work -vopt {+incdir+Z:/ECE 4211/HW7} -nocovercells {Z:/ECE 4211/HW7/internal_logic.v}
+Model Technology ModelSim SE-64 vlog 10.0b Compiler 2011.05 May  5 2011
+-- Compiling module internal_logic
+
+Top level modules:
+	internal_logic
+
+} {} {}} {Z:/ECE 4211/HW7/M25p16.v} {1 {vlog -work work -vopt {+incdir+Z:/ECE 4211/HW7} -nocovercells {Z:/ECE 4211/HW7/M25p16.v}
+Model Technology ModelSim SE-64 vlog 10.0b Compiler 2011.05 May  5 2011
+-- Compiling module m25p16
+
+Top level modules:
+	m25p16
+
+} {} {}} {Z:/ECE 4211/HW7/lcd_control.v} {1 {vlog -work work -vopt -nocovercells {Z:/ECE 4211/HW7/lcd_control.v}
+Model Technology ModelSim SE-64 vlog 10.0b Compiler 2011.05 May  5 2011
+-- Compiling module lcd_control
+
+Top level modules:
+	lcd_control
+
+} {} {}} {Z:/ECE 4211/HW7/debounce.v} {1 {vlog -work work -vopt -nocovercells {Z:/ECE 4211/HW7/debounce.v}
+Model Technology ModelSim SE-64 vlog 10.0b Compiler 2011.05 May  5 2011
+-- Compiling module debounce_sync
+
+Top level modules:
+	debounce_sync
+
+} {} {}} {Z:/ECE 4211/HW7/m25p16_driver.v} {1 {vlog -work work -vopt {+incdir+Z:/ECE 4211/HW7} -nocovercells {Z:/ECE 4211/HW7/m25p16_driver.v}
+Model Technology ModelSim SE-64 vlog 10.0b Compiler 2011.05 May  5 2011
+-- Compiling module m25p16_driver
+
+Top level modules:
+	m25p16_driver
+
+} {} {}} {Z:/ECE 4211/HW7/transaction.v} {1 {vlog -work work -vopt -nocovercells {Z:/ECE 4211/HW7/transaction.v}
+Model Technology ModelSim SE-64 vlog 10.0b Compiler 2011.05 May  5 2011
+-- Compiling module transaction
+
+Top level modules:
+	transaction
+
+} {} {}} {Z:/ECE 4211/HW7/hex_to_ASCII.v} {1 {vlog -work work -vopt -nocovercells {Z:/ECE 4211/HW7/hex_to_ASCII.v}
+Model Technology ModelSim SE-64 vlog 10.0b Compiler 2011.05 May  5 2011
+-- Compiling module hex_to_ASCII
+
+Top level modules:
+	hex_to_ASCII
+
+} {} {}} {Z:/ECE 4211/HW7/testbench.v} {1 {vlog -work work -vopt -nocovercells {Z:/ECE 4211/HW7/testbench.v}
+Model Technology ModelSim SE-64 vlog 10.0b Compiler 2011.05 May  5 2011
+-- Compiling module testbench
+
+Top level modules:
+	testbench
+
+} {} {}} {Z:/ECE 4211/HW7/bus_if.v} {1 {vlog -work work -vopt -nocovercells {Z:/ECE 4211/HW7/bus_if.v}
+Model Technology ModelSim SE-64 vlog 10.0b Compiler 2011.05 May  5 2011
+-- Compiling module bus_if
+
+Top level modules:
+	bus_if
+
+} {} {}} {Z:/ECE 4211/HW7/memory_access.v} {1 {vlog -work work -vopt {+incdir+Z:/ECE 4211/HW7} -nocovercells {Z:/ECE 4211/HW7/memory_access.v}
+Model Technology ModelSim SE-64 vlog 10.0b Compiler 2011.05 May  5 2011
+-- Compiling module memory_access
+
+Top level modules:
+	memory_access
+
+} {} {}} {Z:/ECE 4211/HW7/spi_master_flash.v} {1 {vlog -work work -vopt -nocovercells {Z:/ECE 4211/HW7/spi_master_flash.v}
+Model Technology ModelSim SE-64 vlog 10.0b Compiler 2011.05 May  5 2011
+-- Compiling module spi_master_flash
+
+Top level modules:
+	spi_master_flash
+
+} {} {}} {Z:/ECE 4211/HW7/command_if.v} {1 {vlog -work work -vopt -nocovercells {Z:/ECE 4211/HW7/command_if.v}
+Model Technology ModelSim SE-64 vlog 10.0b Compiler 2011.05 May  5 2011
+-- Compiling module command_if
+
+Top level modules:
+	command_if
+
+} {} {}} {Z:/ECE 4211/HW7/init_detector.v} {1 {vlog -work work -vopt -nocovercells {Z:/ECE 4211/HW7/init_detector.v}
+Model Technology ModelSim SE-64 vlog 10.0b Compiler 2011.05 May  5 2011
+-- Compiling module init_detector
+
+Top level modules:
+	init_detector
+
+} {} {}} {Z:/ECE 4211/HW7/clock_divider_tb.v} {1 {vlog -work work -vopt -nocovercells {Z:/ECE 4211/HW7/clock_divider_tb.v}
+Model Technology ModelSim SE-64 vlog 10.0b Compiler 2011.05 May  5 2011
+-- Compiling module clock_divider_tb
+
+Top level modules:
+	clock_divider_tb
+
+} {} {}} {Z:/ECE 4211/HW7/d_ff.v} {1 {vlog -work work -vopt -nocovercells {Z:/ECE 4211/HW7/d_ff.v}
+Model Technology ModelSim SE-64 vlog 10.0b Compiler 2011.05 May  5 2011
+-- Compiling module d_ff
+
+Top level modules:
+	d_ff
+
+} {} {}}

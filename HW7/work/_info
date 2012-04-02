@@ -1,0 +1,353 @@
+m255
+K3
+13
+cModel Technology
+Z0 dZ:\ECE 4211\HW7
+vacdc_check
+VNeNS:hT^XMYWkh45K=m1Y1
+r1
+31
+IENKaXc8>UC@Ck150[_j@b3
+Z1 dZ:\ECE 4211\HW7
+Z2 w1327712586
+8Z:/ECE 4211/HW7/acdc_check.v
+FZ:/ECE 4211/HW7/acdc_check.v
+L0 20
+Z3 OL;L;10.0b;49
+Z4 !s102 -nocovercells
+Z5 o-work work -nocovercells -L mtiAvm -L mtiOvm -L mtiUvm -L mtiUPF
+Z6 !s92 -work work {+incdir+Z:/ECE 4211/HW7} -nocovercells -L mtiAvm -L mtiOvm -L mtiUvm -L mtiUPF
+!s100 P8[FZRJjO;99zmEjMJ7EM2
+!s90 -reportprogress|300|-work|work|-vopt|+incdir+Z:/ECE 4211/HW7|-nocovercells|Z:/ECE 4211/HW7/acdc_check.v|
+!s108 1333324947.599000
+!s107 parameter.v|Z:/ECE 4211/HW7/acdc_check.v|
+!s85 0
+vbus_if
+VQKC6P9kElAfojmoKj0>N30
+r1
+31
+I0ll[Bb7jCI_^c`2eCg>511
+R1
+w1331945716
+8Z:/ECE 4211/HW7/bus_if.v
+FZ:/ECE 4211/HW7/bus_if.v
+L0 5
+R3
+R4
+R5
+!s100 ?Sn3oQOGUElnf@zX@W<Ug1
+!s90 -reportprogress|300|-work|work|-vopt|-nocovercells|Z:/ECE 4211/HW7/bus_if.v|
+!s108 1333324946.013000
+!s107 Z:/ECE 4211/HW7/bus_if.v|
+!s85 0
+vclock_divider_tb
+Via9:Y8:2i@OQ[m9SndGgU0
+r1
+31
+I;[58N8D6DmEdd;>XXH6G90
+R1
+w1331919547
+8Z:/ECE 4211/HW7/clock_divider_tb.v
+FZ:/ECE 4211/HW7/clock_divider_tb.v
+L0 1
+R3
+R4
+R5
+!s100 E_UECaSzbIJo1AD87Xi?i0
+!s90 -reportprogress|300|-work|work|-vopt|-nocovercells|Z:/ECE 4211/HW7/clock_divider_tb.v|
+!s108 1333324942.752000
+!s107 Z:/ECE 4211/HW7/clock_divider_tb.v|
+!s85 0
+vcommand
+VZfXC42gYaoYJ8P<I465jS2
+r1
+31
+IhOXIT=R3<_;mgUBf`PKXN3
+R1
+Z7 w1333327416
+8Z:/ECE 4211/HW7/command.v
+FZ:/ECE 4211/HW7/command.v
+L0 1
+R3
+R4
+R5
+!s85 0
+!s90 -reportprogress|300|-work|work|-vopt|-nocovercells|Z:/ECE 4211/HW7/command.v|
+!s100 VX_T;mfje6V^Q^O:no3kL1
+!s108 1333327419.530000
+!s107 Z:/ECE 4211/HW7/command.v|
+vcommand_if
+VjcUi;5o^3[S>?a2n^?nbz3
+r1
+31
+I^TjTSIRG_R7=AP;W`cV=D2
+R1
+w1298412922
+8Z:/ECE 4211/HW7/command_if.v
+FZ:/ECE 4211/HW7/command_if.v
+L0 20
+R3
+R4
+R5
+!s100 Yg<>IR7fN]SfPK_<bXW<K2
+!s90 -reportprogress|300|-work|work|-vopt|-nocovercells|Z:/ECE 4211/HW7/command_if.v|
+!s108 1333324945.747000
+!s107 Z:/ECE 4211/HW7/command_if.v|
+!s85 0
+vd_ff
+V8[9[YA@EWSTl4Do_FC:6<3
+r1
+31
+IW17:S[S2lHhWk]fE<M[eM0
+R1
+w1331925494
+8Z:/ECE 4211/HW7/d_ff.v
+FZ:/ECE 4211/HW7/d_ff.v
+L0 1
+R3
+R4
+R5
+!s100 9PE;_9Bi;9UPC6Q2[LT1G1
+!s90 -reportprogress|300|-work|work|-vopt|-nocovercells|Z:/ECE 4211/HW7/d_ff.v|
+!s108 1333324943.439000
+!s107 Z:/ECE 4211/HW7/d_ff.v|
+!s85 0
+vdebounce_sync
+VO3MA[i;Z`C8_b5JPMmC4R1
+r1
+31
+I26DB;zT?[OB01GJ1Y_?[11
+R1
+w1331918905
+8Z:/ECE 4211/HW7/debounce.v
+FZ:/ECE 4211/HW7/debounce.v
+L0 3
+R3
+R4
+R5
+!s100 7n2=o]Aj?OCC5Ji@MH;Qb0
+!s90 -reportprogress|300|-work|work|-vopt|-nocovercells|Z:/ECE 4211/HW7/debounce.v|
+!s108 1333324943.719000
+!s107 Z:/ECE 4211/HW7/debounce.v|
+!s85 0
+vhex_to_ASCII
+IGSP@Nc:_ElG>h=IFALB322
+VelVQOI^9O2`dP99]b?T`l0
+R1
+w1332962596
+8Z:/ECE 4211/HW7/hex_to_ASCII.v
+FZ:/ECE 4211/HW7/hex_to_ASCII.v
+L0 2
+R3
+r1
+31
+R4
+R5
+nhex_to_@a@s@c@i@i
+!s100 <0]Wk:;K]73c`@89XEXjT3
+!s90 -reportprogress|300|-work|work|-vopt|-nocovercells|Z:/ECE 4211/HW7/hex_to_ASCII.v|
+!s108 1333324942.518000
+!s107 Z:/ECE 4211/HW7/hex_to_ASCII.v|
+!s85 0
+vinit_detector
+V:gj7MzoP];PFM]9?7QB^E2
+r1
+31
+IL^XQ4]6EVT<TTMRh9`Q[@0
+R1
+w1298409902
+8Z:/ECE 4211/HW7/init_detector.v
+FZ:/ECE 4211/HW7/init_detector.v
+L0 5
+R3
+R4
+R5
+!s100 88ZDV<lV9jJ2DCNI3nn5Y1
+!s90 -reportprogress|300|-work|work|-vopt|-nocovercells|Z:/ECE 4211/HW7/init_detector.v|
+!s108 1333324945.435000
+!s107 Z:/ECE 4211/HW7/init_detector.v|
+!s85 0
+vinternal_logic
+V8iF6U8l3oTc5OIhBXJO;K2
+r1
+31
+IMXWdkINfC?ZgoTQzU`RFR3
+R1
+R2
+8Z:/ECE 4211/HW7/internal_logic.v
+FZ:/ECE 4211/HW7/internal_logic.v
+L0 20
+R3
+R4
+R5
+R6
+!s100 mJc>Lj>Y4UezNX_zK:ai70
+!s90 -reportprogress|300|-work|work|-vopt|+incdir+Z:/ECE 4211/HW7|-nocovercells|Z:/ECE 4211/HW7/internal_logic.v|
+!s108 1333324947.239000
+!s107 parameter.v|Z:/ECE 4211/HW7/internal_logic.v|
+!s85 0
+vlcd_control
+Vo>S2B^MT@Lh9k@?@7aGHS3
+r1
+31
+ImHLNS4C38183K^SAdGj=72
+R1
+w1291400412
+8Z:/ECE 4211/HW7/lcd_control.v
+FZ:/ECE 4211/HW7/lcd_control.v
+L0 2
+R3
+R4
+R5
+!s100 <B8S2cZ5?2XJCiPLhiHMB3
+!s90 -reportprogress|300|-work|work|-vopt|-nocovercells|Z:/ECE 4211/HW7/lcd_control.v|
+!s108 1333324946.247000
+!s107 Z:/ECE 4211/HW7/lcd_control.v|
+!s85 0
+vm25p16
+VYk@422]>N4[nYLf5V3^P?1
+r1
+31
+Id7h?W>]ZIB;caa8N0[QE82
+R1
+R2
+8Z:/ECE 4211/HW7/M25p16.v
+FZ:/ECE 4211/HW7/M25p16.v
+L0 20
+R3
+R4
+R5
+R6
+!s100 SC@64nhAVlU:F892?@3Ok2
+!s90 -reportprogress|300|-work|work|-vopt|+incdir+Z:/ECE 4211/HW7|-nocovercells|Z:/ECE 4211/HW7/M25p16.v|
+!s108 1333324948.099000
+!s107 parameter.v|Z:/ECE 4211/HW7/M25p16.v|
+!s85 0
+vm25p16_driver
+IoP0>j[<C>?@WENgf@=D4N3
+Vda_I5_;N_3jj2lm6VGo5a2
+R1
+R2
+8Z:/ECE 4211/HW7/m25p16_driver.v
+FZ:/ECE 4211/HW7/m25p16_driver.v
+L0 20
+R3
+r1
+31
+R4
+R5
+R6
+!s100 oiEPz3B^diQA8U`bX33mO1
+!s90 -reportprogress|300|-work|work|-vopt|+incdir+Z:/ECE 4211/HW7|-nocovercells|Z:/ECE 4211/HW7/m25p16_driver.v|
+!s108 1333324948.349000
+!s107 parameter.v|Z:/ECE 4211/HW7/m25p16_driver.v|
+!s85 0
+vmemory_access
+VOQ5egcTzG50Nhg34^HFI52
+r1
+31
+IdK?_z;dH8>hF=3gLV_mz91
+R1
+R2
+8Z:/ECE 4211/HW7/memory_access.v
+FZ:/ECE 4211/HW7/memory_access.v
+L0 20
+R3
+R4
+R5
+R6
+!s100 @MlzHm;g]n4o>hE_DWD?@2
+!s90 -reportprogress|300|-work|work|-vopt|+incdir+Z:/ECE 4211/HW7|-nocovercells|Z:/ECE 4211/HW7/memory_access.v|
+!s108 1333324946.849000
+!s107 parameter.v|Z:/ECE 4211/HW7/memory_access.v|
+!s85 0
+voneshot
+V7H7i:Zk_hSALhRB_OOIDh3
+r1
+31
+In0blF14gI<1n^G82X7LeI2
+R1
+w1331918837
+8Z:/ECE 4211/HW7/oneshot.v
+FZ:/ECE 4211/HW7/oneshot.v
+L0 1
+R3
+R4
+R5
+!s100 LeFMS9hi]dRc_ZG3:MdL91
+!s90 -reportprogress|300|-work|work|-vopt|-nocovercells|Z:/ECE 4211/HW7/oneshot.v|
+!s108 1333324943.938000
+!s107 Z:/ECE 4211/HW7/oneshot.v|
+!s85 0
+vphysical
+VGgeKb_fn=BQMAk@=:[deC1
+r1
+!s85 0
+31
+I4`nnhJkK;NZI5N<miN1I_0
+R1
+R7
+8Z:/ECE 4211/HW7/physical.v
+FZ:/ECE 4211/HW7/physical.v
+L0 1
+R3
+R4
+R5
+!s90 -reportprogress|300|-work|work|-vopt|-nocovercells|Z:/ECE 4211/HW7/physical.v|
+!s100 WgZcn19QNLmjBTQf<fd8U1
+!s108 1333327419.811000
+!s107 Z:/ECE 4211/HW7/physical.v|
+vspi_master_flash
+VPoLhWR<L9[LT;=4<GM03i3
+r1
+31
+I72M^X6bHFBJ=S4`oGH8`N1
+R1
+w1332205027
+8Z:/ECE 4211/HW7/spi_master_flash.v
+FZ:/ECE 4211/HW7/spi_master_flash.v
+L0 1
+R3
+R4
+R5
+!s100 n4E3e?[Z5Kzh`da6Sg27`2
+!s90 -reportprogress|300|-work|work|-vopt|-nocovercells|Z:/ECE 4211/HW7/spi_master_flash.v|
+!s108 1333324944.499000
+!s107 Z:/ECE 4211/HW7/spi_master_flash.v|
+!s85 0
+vtestbench
+VhGfW:390DM[oDMzegDH9`2
+r1
+31
+IUWdkk>UgCQahB]n5cO?5`2
+R1
+w1333325015
+8Z:/ECE 4211/HW7/testbench.v
+FZ:/ECE 4211/HW7/testbench.v
+L0 2
+R3
+R4
+R5
+!s90 -reportprogress|300|-work|work|-vopt|-nocovercells|Z:/ECE 4211/HW7/testbench.v|
+!s100 _`Sf@[j0A7mM8Bf?RLngY0
+!s108 1333325016.976000
+!s107 Z:/ECE 4211/HW7/testbench.v|
+!s85 0
+vtransaction
+VXh2N@H7AHhDR[hC7]<_Io0
+r1
+31
+I1GXP@V^O829Zl1eXPdAbl2
+R1
+w1332201968
+8Z:/ECE 4211/HW7/transaction.v
+FZ:/ECE 4211/HW7/transaction.v
+L0 1
+R3
+R4
+R5
+!s100 5G>Z?Eg22PLmLSXZ:UZAA0
+!s90 -reportprogress|300|-work|work|-vopt|-nocovercells|Z:/ECE 4211/HW7/transaction.v|
+!s108 1333324945.092000
+!s107 Z:/ECE 4211/HW7/transaction.v|
+!s85 0

@@ -1,0 +1,290 @@
+#  
+# Compile of command.v was successful.
+vsim -novopt work.testbench
+# vsim -novopt work.testbench 
+# Loading work.testbench
+# Loading work.lcd_control
+# Loading work.command_if
+# Loading work.bus_if
+# Loading work.init_detector
+# Refreshing Z:\ECE 4211\HW7\work.command
+# Loading work.command
+# Loading work.clock_divider_tb
+# Loading work.transaction
+# Loading work.physical
+# Loading work.spi_master_flash
+# Loading work.m25p16
+# Loading work.memory_access
+# Loading work.acdc_check
+# Loading work.internal_logic
+# Loading work.debounce_sync
+# Loading work.d_ff
+# Loading work.oneshot
+add wave -position end  sim:/testbench/CCLK
+add wave -position end  sim:/testbench/BTN0
+add wave -position end  sim:/testbench/BTN1
+add wave -position end  sim:/testbench/SPIMISO
+add wave -position end  sim:/testbench/SPISCK
+add wave -position end  sim:/testbench/SPIMOSI
+# ** Warning: (vsim-WLF-5000) WLF file currently in use: vsim.wlf
+#           File in use by:   Hostname:   ProcessID: 0
+#           Attempting to use alternate WLF file "./wlftxbxm21".
+# ** Warning: (vsim-WLF-5001) Could not open WLF file: vsim.wlf
+#           Using alternate file: ./wlftxbxm21
+add wave -position end  sim:/testbench/LCDDAT
+add wave -position end  sim:/testbench/CMD/BTN1_debounced
+add wave -position end  sim:/testbench/CMD/do_init
+add wave -position end  sim:/testbench/CMD/init_done
+add wave -position end  sim:/testbench/CMD/reset_done
+add wave -position end  sim:/testbench/CMD/do_write_data
+add wave -position end  sim:/testbench/CMD/data_to_write
+add wave -position end  sim:/testbench/CMD/send_data_done
+add wave -position end  sim:/testbench/CMD/get_rdid_oneshot
+add wave -position end  sim:/testbench/CMD/get_rdid_done
+add wave -position end  sim:/testbench/CMD/string_to_display
+add wave -position end  sim:/testbench/CMD/display_counter
+add wave -position end  sim:/testbench/CMD/current_state
+add wave -position end  sim:/testbench/CMD/next_state
+add wave -position end  sim:/testbench/CMD/man_ID_out
+add wave -position end  sim:/testbench/CMD/mem_TP_out
+add wave -position end  sim:/testbench/CMD/mem_CP_out
+add wave -position end  sim:/testbench/CMD/man_ID
+add wave -position end  sim:/testbench/CMD/mem_TP
+add wave -position end  sim:/testbench/CMD/mem_CP
+restart
+run
+# 0ns : NOTE : Load memory with Initial content
+# ** Warning: (vsim-7) Failed to open readmem file "initM25P16.txt" in read mode.
+# No such file or directory. (errno = ENOENT)    : Z:/ECE 4211/HW7/memory_access.v(58)
+#    Time: 0 ns  Iteration: 0  Instance: /testbench/CMD/memory/mem_access
+# 0ns : NOTE : Initial Load End
+# 40ns:  NOTE: COMMUNICATION (RE)STARTED
+# 6827985ns: Bus initialization Successful
+# 6856641ns: Function Set command
+# 9376641ns: Entry Mode Set command: I/D=1, S=0
+# 11896641ns: Display On/Off command: D=1, C=1, B=1
+# 14416641ns: Clear Display command
+# 16936803ns: Writing a " " to line 0 column   0
+# 19456963ns: Writing a "P" to line 0 column   1
+# 21977123ns: Writing a "=" to line 0 column   2
+# 24497283ns: Writing a " " to line 0 column   3
+# 27017443ns: Writing a "" to line 0 column   4
+# 29537603ns: Writing a " " to line 0 column   5
+# 32057763ns: Writing a "I" to line 0 column   6
+# 34577923ns: Writing a "=" to line 0 column   7
+# 37098083ns: Writing a " " to line 0 column   8
+# 39618243ns: Writing a " " to line 0 column   9
+# 42138403ns: Writing a " " to line 0 column  10
+# 44658563ns: Writing a "T" to line 0 column  11
+# 47178723ns: Writing a "P" to line 0 column  12
+# 49698883ns: Writing a "=" to line 0 column  13
+# 52219043ns: Writing a " " to line 0 column  14
+# 54739203ns: Writing a " " to line 0 column  15
+restart
+run
+# 0ns : NOTE : Load memory with Initial content
+# ** Warning: (vsim-7) Failed to open readmem file "initM25P16.txt" in read mode.
+# No such file or directory. (errno = ENOENT)    : Z:/ECE 4211/HW7/memory_access.v(58)
+#    Time: 0 ns  Iteration: 0  Instance: /testbench/CMD/memory/mem_access
+# 0ns : NOTE : Initial Load End
+# 40ns:  NOTE: COMMUNICATION (RE)STARTED
+# 6827985ns: Bus initialization Successful
+# 6856641ns: Function Set command
+# 9376641ns: Entry Mode Set command: I/D=1, S=0
+# 11896641ns: Display On/Off command: D=1, C=1, B=1
+# 14416641ns: Clear Display command
+# 16936803ns: Writing a " " to line 0 column   0
+# 19456963ns: Writing a "P" to line 0 column   1
+# 21977123ns: Writing a "=" to line 0 column   2
+# 24497283ns: Writing a " " to line 0 column   3
+# 27017443ns: Writing a "" to line 0 column   4
+# 29537603ns: Writing a " " to line 0 column   5
+# 32057763ns: Writing a "I" to line 0 column   6
+# 34577923ns: Writing a "=" to line 0 column   7
+# 37098083ns: Writing a " " to line 0 column   8
+# 39618243ns: Writing a " " to line 0 column   9
+# 42138403ns: Writing a " " to line 0 column  10
+# 44658563ns: Writing a "T" to line 0 column  11
+# 47178723ns: Writing a "P" to line 0 column  12
+# 49698883ns: Writing a "=" to line 0 column  13
+# 52219043ns: Writing a " " to line 0 column  14
+# 54739203ns: Writing a " " to line 0 column  15
+# Compile of command.v was successful.
+restart
+# Refreshing Z:\ECE 4211\HW7\work.command
+# Loading work.command
+run
+# 0ns : NOTE : Load memory with Initial content
+# ** Warning: (vsim-7) Failed to open readmem file "initM25P16.txt" in read mode.
+# No such file or directory. (errno = ENOENT)    : Z:/ECE 4211/HW7/memory_access.v(58)
+#    Time: 0 ns  Iteration: 0  Instance: /testbench/CMD/memory/mem_access
+# 0ns : NOTE : Initial Load End
+# 40ns:  NOTE: COMMUNICATION (RE)STARTED
+# 6827985ns: Bus initialization Successful
+# 6856641ns: Function Set command
+# 9376641ns: Entry Mode Set command: I/D=1, S=0
+# 11896641ns: Display On/Off command: D=1, C=1, B=1
+# 14416641ns: Clear Display command
+# 16936803ns: Writing a " " to line 0 column   0
+# 19456963ns: Writing a "P" to line 0 column   1
+# 21977123ns: Writing a "=" to line 0 column   2
+# 24497283ns: Writing a " " to line 0 column   3
+# 27017443ns: Writing a "E" to line 0 column   4
+# 29537603ns: Writing a " " to line 0 column   5
+# 32057763ns: Writing a "I" to line 0 column   6
+# 34577923ns: Writing a "=" to line 0 column   7
+# 37098083ns: Writing a " " to line 0 column   8
+# 39618243ns: Writing a "P" to line 0 column   9
+# 42138403ns: Writing a " " to line 0 column  10
+# 44658563ns: Writing a "T" to line 0 column  11
+# 47178723ns: Writing a "P" to line 0 column  12
+# 49698883ns: Writing a "=" to line 0 column  13
+# 52219043ns: Writing a " " to line 0 column  14
+# 54739203ns: Writing a "P" to line 0 column  15
+source lcd_gui.tcl
+# Compile of command.v failed with 1 errors.
+# Compile of command.v was successful.
+restart
+# Refreshing Z:\ECE 4211\HW7\work.command
+# Loading work.command
+run
+# 0ns : NOTE : Load memory with Initial content
+# ** Warning: (vsim-7) Failed to open readmem file "initM25P16.txt" in read mode.
+# No such file or directory. (errno = ENOENT)    : Z:/ECE 4211/HW7/memory_access.v(58)
+#    Time: 0 ns  Iteration: 0  Instance: /testbench/CMD/memory/mem_access
+# 0ns : NOTE : Initial Load End
+# 40ns:  NOTE: COMMUNICATION (RE)STARTED
+# 6827985ns: Bus initialization Successful
+# 6856641ns: Function Set command
+# 9376641ns: Entry Mode Set command: I/D=1, S=0
+# 11896641ns: Display On/Off command: D=1, C=1, B=1
+# 14416641ns: Clear Display command
+# 16936803ns: Writing a " " to line 0 column   0
+# 19456963ns: Writing a "P" to line 0 column   1
+# 21977123ns: Writing a "=" to line 0 column   2
+# 24497283ns: Writing a "1" to line 0 column   3
+# 27017443ns: Writing a "5" to line 0 column   4
+# 29537603ns: Writing a " " to line 0 column   5
+# 32057763ns: Writing a "I" to line 0 column   6
+# 34577923ns: Writing a "=" to line 0 column   7
+# 37098083ns: Writing a "2" to line 0 column   8
+# 39618243ns: Writing a "0" to line 0 column   9
+# 42138403ns: Writing a " " to line 0 column  10
+# 44658563ns: Writing a "T" to line 0 column  11
+# 47178723ns: Writing a "P" to line 0 column  12
+# 49698883ns: Writing a "=" to line 0 column  13
+# 52219043ns: Writing a "2" to line 0 column  14
+# 54739203ns: Writing a "0" to line 0 column  15
+# Compile of testbench.v failed with 1 errors.
+# Compile of testbench.v was successful.
+restart
+# Refreshing Z:\ECE 4211\HW7\work.testbench
+# Loading work.testbench
+run
+# 0ns : NOTE : Load memory with Initial content
+# ** Warning: (vsim-7) Failed to open readmem file "initM25P16.txt" in read mode.
+# No such file or directory. (errno = ENOENT)    : Z:/ECE 4211/HW7/memory_access.v(58)
+#    Time: 0 ns  Iteration: 0  Instance: /testbench/CMD/memory/mem_access
+# 0ns : NOTE : Initial Load End
+# 40ns:  NOTE: COMMUNICATION (RE)STARTED
+# 6827985ns: Bus initialization Successful
+# 6856641ns: Function Set command
+# 9376641ns: Entry Mode Set command: I/D=1, S=0
+# 11896641ns: Display On/Off command: D=1, C=1, B=1
+# 14416641ns: Clear Display command
+# 16936803ns: Writing a " " to line 0 column   0
+# 19456963ns: Writing a " " to line 0 column   1
+# 21977123ns: Writing a " " to line 0 column   2
+# 24497283ns: Writing a " " to line 0 column   3
+# 27017443ns: Writing a " " to line 0 column   4
+# 29537603ns: Writing a " " to line 0 column   5
+# 32057763ns: Writing a " " to line 0 column   6
+# 34577923ns: Writing a " " to line 0 column   7
+# 37098083ns: Writing a " " to line 0 column   8
+# 39618243ns: Writing a " " to line 0 column   9
+# 42138403ns: Writing a " " to line 0 column  10
+# 44658563ns: Writing a " " to line 0 column  11
+# 47178723ns: Writing a " " to line 0 column  12
+# 49698883ns: Writing a " " to line 0 column  13
+# 52219043ns: Writing a " " to line 0 column  14
+# 54739203ns: Writing a " " to line 0 column  15
+write format wave -window .main_pane.wave.interior.cs.body.pw.wf {Z:/ECE 4211/HW7/wave.do}
+# Compile of command.v failed with 1 errors.
+# Compile of command.v was successful.
+restart
+# Refreshing Z:\ECE 4211\HW7\work.command
+# Loading work.command
+run
+# 0ns : NOTE : Load memory with Initial content
+# ** Warning: (vsim-7) Failed to open readmem file "initM25P16.txt" in read mode.
+# No such file or directory. (errno = ENOENT)    : Z:/ECE 4211/HW7/memory_access.v(58)
+#    Time: 0 ns  Iteration: 0  Instance: /testbench/CMD/memory/mem_access
+# 0ns : NOTE : Initial Load End
+# 40ns:  NOTE: COMMUNICATION (RE)STARTED
+# 6827985ns: Bus initialization Successful
+# 6856641ns: Function Set command
+# 9376641ns: Entry Mode Set command: I/D=1, S=0
+# 11896641ns: Display On/Off command: D=1, C=1, B=1
+# 14416641ns: Clear Display command
+# Compile of testbench.v was successful.
+restart
+# Refreshing Z:\ECE 4211\HW7\work.testbench
+# Loading work.testbench
+run
+# 0ns : NOTE : Load memory with Initial content
+# ** Warning: (vsim-7) Failed to open readmem file "initM25P16.txt" in read mode.
+# No such file or directory. (errno = ENOENT)    : Z:/ECE 4211/HW7/memory_access.v(58)
+#    Time: 0 ns  Iteration: 0  Instance: /testbench/CMD/memory/mem_access
+# 0ns : NOTE : Initial Load End
+# 40ns:  NOTE: COMMUNICATION (RE)STARTED
+# 6827985ns: Bus initialization Successful
+# 6856641ns: Function Set command
+# 9376641ns: Entry Mode Set command: I/D=1, S=0
+# 11896641ns: Display On/Off command: D=1, C=1, B=1
+# 14416641ns: Clear Display command
+# 16951683ns: Writing a "C" to line 0 column   0
+# 19471843ns: Writing a "P" to line 0 column   1
+# 21992003ns: Writing a "=" to line 0 column   2
+# 24512163ns: Writing a "1" to line 0 column   3
+# 27032323ns: Writing a "5" to line 0 column   4
+# 29552483ns: Writing a " " to line 0 column   5
+# 32072643ns: Writing a "I" to line 0 column   6
+# 34592803ns: Writing a "=" to line 0 column   7
+# 37112963ns: Writing a "2" to line 0 column   8
+# 39633123ns: Writing a "0" to line 0 column   9
+# 42153283ns: Writing a " " to line 0 column  10
+# 44673443ns: Writing a "T" to line 0 column  11
+# 47193603ns: Writing a "P" to line 0 column  12
+# 49713763ns: Writing a "=" to line 0 column  13
+# 52233923ns: Writing a "2" to line 0 column  14
+# 54754083ns: Writing a "0" to line 0 column  15
+restart
+run
+# 0ns : NOTE : Load memory with Initial content
+# ** Warning: (vsim-7) Failed to open readmem file "initM25P16.txt" in read mode.
+# No such file or directory. (errno = ENOENT)    : Z:/ECE 4211/HW7/memory_access.v(58)
+#    Time: 0 ns  Iteration: 0  Instance: /testbench/CMD/memory/mem_access
+# 0ns : NOTE : Initial Load End
+# 40ns:  NOTE: COMMUNICATION (RE)STARTED
+# 6827985ns: Bus initialization Successful
+# 6856641ns: Function Set command
+# 9376641ns: Entry Mode Set command: I/D=1, S=0
+# 11896641ns: Display On/Off command: D=1, C=1, B=1
+# 14416641ns: Clear Display command
+# 16951683ns: Writing a "C" to line 0 column   0
+# 19471843ns: Writing a "P" to line 0 column   1
+# 21992003ns: Writing a "=" to line 0 column   2
+# 24512163ns: Writing a "1" to line 0 column   3
+# 27032323ns: Writing a "5" to line 0 column   4
+# 29552483ns: Writing a " " to line 0 column   5
+# 32072643ns: Writing a "I" to line 0 column   6
+# 34592803ns: Writing a "=" to line 0 column   7
+# 37112963ns: Writing a "2" to line 0 column   8
+# 39633123ns: Writing a "0" to line 0 column   9
+# 42153283ns: Writing a " " to line 0 column  10
+# 44673443ns: Writing a "T" to line 0 column  11
+# 47193603ns: Writing a "P" to line 0 column  12
+# 49713763ns: Writing a "=" to line 0 column  13
+# 52233923ns: Writing a "2" to line 0 column  14
+# 54754083ns: Writing a "0" to line 0 column  15
+write format wave -window .main_pane.wave.interior.cs.body.pw.wf {Z:/ECE 4211/HW7/wave.do}

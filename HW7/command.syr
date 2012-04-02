@@ -1,0 +1,965 @@
+Release 13.2 - xst O.61xd (nt64)
+Copyright (c) 1995-2011 Xilinx, Inc.  All rights reserved.
+--> Parameter TMPDIR set to xst/projnav.tmp
+
+
+Total REAL time to Xst completion: 1.00 secs
+Total CPU time to Xst completion: 0.14 secs
+ 
+--> Parameter xsthdpdir set to xst
+
+
+Total REAL time to Xst completion: 1.00 secs
+Total CPU time to Xst completion: 0.16 secs
+ 
+--> Reading design: command.prj
+
+TABLE OF CONTENTS
+  1) Synthesis Options Summary
+  2) HDL Compilation
+  3) Design Hierarchy Analysis
+  4) HDL Analysis
+  5) HDL Synthesis
+     5.1) HDL Synthesis Report
+  6) Advanced HDL Synthesis
+     6.1) Advanced HDL Synthesis Report
+  7) Low Level Synthesis
+  8) Partition Report
+  9) Final Report
+	9.1) Device utilization summary
+	9.2) Partition Resource Summary
+	9.3) TIMING REPORT
+
+
+=========================================================================
+*                      Synthesis Options Summary                        *
+=========================================================================
+---- Source Parameters
+Input File Name                    : "command.prj"
+Input Format                       : mixed
+Ignore Synthesis Constraint File   : NO
+
+---- Target Parameters
+Output File Name                   : "command"
+Output Format                      : NGC
+Target Device                      : xc3s500e-4-fg320
+
+---- Source Options
+Top Module Name                    : command
+Automatic FSM Extraction           : YES
+FSM Encoding Algorithm             : Auto
+Safe Implementation                : No
+FSM Style                          : LUT
+RAM Extraction                     : Yes
+RAM Style                          : Auto
+ROM Extraction                     : Yes
+Mux Style                          : Auto
+Decoder Extraction                 : YES
+Priority Encoder Extraction        : Yes
+Shift Register Extraction          : YES
+Logical Shifter Extraction         : YES
+XOR Collapsing                     : YES
+ROM Style                          : Auto
+Mux Extraction                     : Yes
+Resource Sharing                   : YES
+Asynchronous To Synchronous        : NO
+Multiplier Style                   : Auto
+Automatic Register Balancing       : No
+
+---- Target Options
+Add IO Buffers                     : YES
+Global Maximum Fanout              : 100000
+Add Generic Clock Buffer(BUFG)     : 24
+Register Duplication               : YES
+Slice Packing                      : YES
+Optimize Instantiated Primitives   : NO
+Use Clock Enable                   : Yes
+Use Synchronous Set                : Yes
+Use Synchronous Reset              : Yes
+Pack IO Registers into IOBs        : Auto
+Equivalent register Removal        : YES
+
+---- General Options
+Optimization Goal                  : Speed
+Optimization Effort                : 1
+Keep Hierarchy                     : No
+Netlist Hierarchy                  : As_Optimized
+RTL Output                         : Yes
+Global Optimization                : AllClockNets
+Read Cores                         : YES
+Write Timing Constraints           : NO
+Cross Clock Analysis               : NO
+Hierarchy Separator                : /
+Bus Delimiter                      : <>
+Case Specifier                     : Maintain
+Slice Utilization Ratio            : 100
+BRAM Utilization Ratio             : 100
+Verilog 2001                       : YES
+Auto BRAM Packing                  : NO
+Slice Utilization Ratio Delta      : 5
+
+---- Other Options
+Cores Search Directories           : {"ipcore_dir"  }
+
+=========================================================================
+
+
+=========================================================================
+*                          HDL Compilation                              *
+=========================================================================
+Compiling verilog file "physical.v" in library work
+Compiling verilog file "d_ff.v" in library work
+Module <physical> compiled
+Compiling verilog file "transaction.v" in library work
+Module <d_ff> compiled
+Compiling verilog file "spi_master_flash.v" in library work
+Module <transaction> compiled
+Compiling verilog file "oneshot.v" in library work
+Module <spi_master_flash> compiled
+Compiling verilog file "ipcore_dir/ila.v" in library work
+Module <oneshot> compiled
+Compiling verilog file "ipcore_dir/icon.v" in library work
+Module <ila> compiled
+Compiling verilog file "clock_divider.v" in library work
+Module <icon> compiled
+Compiling verilog file "debounce.v" in library work
+Module <clock_divider> compiled
+Compiling verilog file "command.v" in library work
+Module <debounce_sync> compiled
+Module <command> compiled
+No errors in compilation
+Analysis of file <"command.prj"> succeeded.
+ 
+
+=========================================================================
+*                     Design Hierarchy Analysis                         *
+=========================================================================
+Analyzing hierarchy for module <command> in library <work> with parameters.
+	IDLE = "00"
+	SEND_BYTE = "10"
+	WAIT_DONE = "11"
+	WAIT_GET_RDID_DONE = "01"
+
+Analyzing hierarchy for module <clock_divider> in library <work>.
+
+Analyzing hierarchy for module <transaction> in library <work> with parameters.
+	CLEAR_DISPLAY = "100"
+	DISPLAY_ON_OFF = "011"
+	DO_WRITE_RAM = "110"
+	ENTRY_MODE_SET = "010"
+	FUNCTION_SET = "001"
+	IDLE = "101"
+	INIT = "000"
+
+Analyzing hierarchy for module <spi_master_flash> in library <work> with parameters.
+	ASSERT_CHIPSEL = "001"
+	DEASSERT_CHIPSEL = "100"
+	GET_DATA = "011"
+	IDLE = "000"
+	RDID_CMD = "10011111"
+	SEND_INSTRUCTION = "010"
+
+Analyzing hierarchy for module <debounce_sync> in library <work>.
+
+Analyzing hierarchy for module <oneshot> in library <work>.
+
+Analyzing hierarchy for module <physical> in library <work> with parameters.
+	ASSERT_LCDE_1 = "0001"
+	ASSERT_LCDE_2 = "0011"
+	ASSERT_LCDE_3 = "0101"
+	ASSERT_LCDE_4 = "0111"
+	ASSERT_LCDE_NIBBLE1 = "1010"
+	ASSERT_LCDE_NIBBLE2 = "1101"
+	BETWEEN_NIBBLES = "1011"
+	IDLE = "0000"
+	SEND_NIBBLE1 = "1001"
+	SEND_NIBBLE2 = "1100"
+	WAIT_100US = "0100"
+	WAIT_40US_0 = "1111"
+	WAIT_40US_1 = "0110"
+	WAIT_40US_2 = "1000"
+	WAIT_40US_AFTER_CMD = "1110"
+	WAIT_4_1MS = "0010"
+
+Analyzing hierarchy for module <d_ff> in library <work>.
+
+
+=========================================================================
+*                            HDL Analysis                               *
+=========================================================================
+Analyzing top module <command>.
+	IDLE = 2'b00
+	SEND_BYTE = 2'b10
+	WAIT_DONE = 2'b11
+	WAIT_GET_RDID_DONE = 2'b01
+	Calling function <hex_to_ASCII>.
+	Calling function <convert>.
+	Calling function <convert>.
+	Calling function <hex_to_ASCII>.
+	Calling function <convert>.
+	Calling function <convert>.
+	Calling function <hex_to_ASCII>.
+	Calling function <convert>.
+	Calling function <convert>.
+WARNING:Xst:2211 - "ipcore_dir/icon.v" line 46: Instantiating black box module <icon>.
+WARNING:Xst:2211 - "ipcore_dir/ila.v" line 50: Instantiating black box module <ila>.
+Module <command> is correct for synthesis.
+ 
+Analyzing module <clock_divider> in library <work>.
+Module <clock_divider> is correct for synthesis.
+ 
+    Set user-defined property "CAPACITANCE =  DONT_CARE" for instance <CLKIN_IBUFG_INST> in unit <clock_divider>.
+    Set user-defined property "IBUF_DELAY_VALUE =  0" for instance <CLKIN_IBUFG_INST> in unit <clock_divider>.
+    Set user-defined property "IBUF_LOW_PWR =  TRUE" for instance <CLKIN_IBUFG_INST> in unit <clock_divider>.
+    Set user-defined property "IOSTANDARD =  DEFAULT" for instance <CLKIN_IBUFG_INST> in unit <clock_divider>.
+    Set user-defined property "CLKDV_DIVIDE =  10.000000" for instance <DCM_SP_INST> in unit <clock_divider>.
+    Set user-defined property "CLKFX_DIVIDE =  1" for instance <DCM_SP_INST> in unit <clock_divider>.
+    Set user-defined property "CLKFX_MULTIPLY =  4" for instance <DCM_SP_INST> in unit <clock_divider>.
+    Set user-defined property "CLKIN_DIVIDE_BY_2 =  FALSE" for instance <DCM_SP_INST> in unit <clock_divider>.
+    Set user-defined property "CLKIN_PERIOD =  20.000000" for instance <DCM_SP_INST> in unit <clock_divider>.
+    Set user-defined property "CLKOUT_PHASE_SHIFT =  NONE" for instance <DCM_SP_INST> in unit <clock_divider>.
+    Set user-defined property "CLK_FEEDBACK =  1X" for instance <DCM_SP_INST> in unit <clock_divider>.
+    Set user-defined property "DESKEW_ADJUST =  SYSTEM_SYNCHRONOUS" for instance <DCM_SP_INST> in unit <clock_divider>.
+    Set user-defined property "DFS_FREQUENCY_MODE =  LOW" for instance <DCM_SP_INST> in unit <clock_divider>.
+    Set user-defined property "DLL_FREQUENCY_MODE =  LOW" for instance <DCM_SP_INST> in unit <clock_divider>.
+    Set user-defined property "DSS_MODE =  NONE" for instance <DCM_SP_INST> in unit <clock_divider>.
+    Set user-defined property "DUTY_CYCLE_CORRECTION =  TRUE" for instance <DCM_SP_INST> in unit <clock_divider>.
+    Set user-defined property "FACTORY_JF =  C080" for instance <DCM_SP_INST> in unit <clock_divider>.
+    Set user-defined property "PHASE_SHIFT =  0" for instance <DCM_SP_INST> in unit <clock_divider>.
+    Set user-defined property "STARTUP_WAIT =  FALSE" for instance <DCM_SP_INST> in unit <clock_divider>.
+Analyzing module <transaction> in library <work>.
+	CLEAR_DISPLAY = 3'b100
+	DISPLAY_ON_OFF = 3'b011
+	DO_WRITE_RAM = 3'b110
+	ENTRY_MODE_SET = 3'b010
+	FUNCTION_SET = 3'b001
+	IDLE = 3'b101
+	INIT = 3'b000
+Module <transaction> is correct for synthesis.
+ 
+Analyzing module <physical> in library <work>.
+	ASSERT_LCDE_1 = 4'b0001
+	ASSERT_LCDE_2 = 4'b0011
+	ASSERT_LCDE_3 = 4'b0101
+	ASSERT_LCDE_4 = 4'b0111
+	ASSERT_LCDE_NIBBLE1 = 4'b1010
+	ASSERT_LCDE_NIBBLE2 = 4'b1101
+	BETWEEN_NIBBLES = 4'b1011
+	IDLE = 4'b0000
+	SEND_NIBBLE1 = 4'b1001
+	SEND_NIBBLE2 = 4'b1100
+	WAIT_100US = 4'b0100
+	WAIT_40US_0 = 4'b1111
+	WAIT_40US_1 = 4'b0110
+	WAIT_40US_2 = 4'b1000
+	WAIT_40US_AFTER_CMD = 4'b1110
+	WAIT_4_1MS = 4'b0010
+Module <physical> is correct for synthesis.
+ 
+Analyzing module <spi_master_flash> in library <work>.
+	ASSERT_CHIPSEL = 3'b001
+	DEASSERT_CHIPSEL = 3'b100
+	GET_DATA = 3'b011
+	IDLE = 3'b000
+	RDID_CMD = 8'b10011111
+	SEND_INSTRUCTION = 3'b010
+Module <spi_master_flash> is correct for synthesis.
+ 
+Analyzing module <debounce_sync> in library <work>.
+Module <debounce_sync> is correct for synthesis.
+ 
+Analyzing module <d_ff> in library <work>.
+Module <d_ff> is correct for synthesis.
+ 
+Analyzing module <oneshot> in library <work>.
+Module <oneshot> is correct for synthesis.
+ 
+
+=========================================================================
+*                           HDL Synthesis                               *
+=========================================================================
+
+Performing bidirectional port resolution...
+INFO:Xst:2679 - Register <string_to_display<127>> in unit <command> has a constant value of 0 during circuit operation. The register is replaced by logic.
+INFO:Xst:2679 - Register <string_to_display<125>> in unit <command> has a constant value of 0 during circuit operation. The register is replaced by logic.
+INFO:Xst:2679 - Register <string_to_display<124>> in unit <command> has a constant value of 0 during circuit operation. The register is replaced by logic.
+INFO:Xst:2679 - Register <string_to_display<123>> in unit <command> has a constant value of 0 during circuit operation. The register is replaced by logic.
+INFO:Xst:2679 - Register <string_to_display<122>> in unit <command> has a constant value of 0 during circuit operation. The register is replaced by logic.
+INFO:Xst:2679 - Register <string_to_display<119>> in unit <command> has a constant value of 0 during circuit operation. The register is replaced by logic.
+INFO:Xst:2679 - Register <string_to_display<117>> in unit <command> has a constant value of 0 during circuit operation. The register is replaced by logic.
+INFO:Xst:2679 - Register <string_to_display<115>> in unit <command> has a constant value of 0 during circuit operation. The register is replaced by logic.
+INFO:Xst:2679 - Register <string_to_display<114>> in unit <command> has a constant value of 0 during circuit operation. The register is replaced by logic.
+INFO:Xst:2679 - Register <string_to_display<113>> in unit <command> has a constant value of 0 during circuit operation. The register is replaced by logic.
+INFO:Xst:2679 - Register <string_to_display<112>> in unit <command> has a constant value of 0 during circuit operation. The register is replaced by logic.
+INFO:Xst:2679 - Register <string_to_display<111>> in unit <command> has a constant value of 0 during circuit operation. The register is replaced by logic.
+INFO:Xst:2679 - Register <string_to_display<110>> in unit <command> has a constant value of 0 during circuit operation. The register is replaced by logic.
+INFO:Xst:2679 - Register <string_to_display<105>> in unit <command> has a constant value of 0 during circuit operation. The register is replaced by logic.
+INFO:Xst:2679 - Register <string_to_display<87>> in unit <command> has a constant value of 0 during circuit operation. The register is replaced by logic.
+INFO:Xst:2679 - Register <string_to_display<86>> in unit <command> has a constant value of 0 during circuit operation. The register is replaced by logic.
+INFO:Xst:2679 - Register <string_to_display<84>> in unit <command> has a constant value of 0 during circuit operation. The register is replaced by logic.
+INFO:Xst:2679 - Register <string_to_display<83>> in unit <command> has a constant value of 0 during circuit operation. The register is replaced by logic.
+INFO:Xst:2679 - Register <string_to_display<82>> in unit <command> has a constant value of 0 during circuit operation. The register is replaced by logic.
+INFO:Xst:2679 - Register <string_to_display<81>> in unit <command> has a constant value of 0 during circuit operation. The register is replaced by logic.
+INFO:Xst:2679 - Register <string_to_display<80>> in unit <command> has a constant value of 0 during circuit operation. The register is replaced by logic.
+INFO:Xst:2679 - Register <string_to_display<79>> in unit <command> has a constant value of 0 during circuit operation. The register is replaced by logic.
+INFO:Xst:2679 - Register <string_to_display<77>> in unit <command> has a constant value of 0 during circuit operation. The register is replaced by logic.
+INFO:Xst:2679 - Register <string_to_display<76>> in unit <command> has a constant value of 0 during circuit operation. The register is replaced by logic.
+INFO:Xst:2679 - Register <string_to_display<74>> in unit <command> has a constant value of 0 during circuit operation. The register is replaced by logic.
+INFO:Xst:2679 - Register <string_to_display<73>> in unit <command> has a constant value of 0 during circuit operation. The register is replaced by logic.
+INFO:Xst:2679 - Register <string_to_display<71>> in unit <command> has a constant value of 0 during circuit operation. The register is replaced by logic.
+INFO:Xst:2679 - Register <string_to_display<70>> in unit <command> has a constant value of 0 during circuit operation. The register is replaced by logic.
+INFO:Xst:2679 - Register <string_to_display<65>> in unit <command> has a constant value of 0 during circuit operation. The register is replaced by logic.
+INFO:Xst:2679 - Register <string_to_display<47>> in unit <command> has a constant value of 0 during circuit operation. The register is replaced by logic.
+INFO:Xst:2679 - Register <string_to_display<46>> in unit <command> has a constant value of 0 during circuit operation. The register is replaced by logic.
+INFO:Xst:2679 - Register <string_to_display<44>> in unit <command> has a constant value of 0 during circuit operation. The register is replaced by logic.
+INFO:Xst:2679 - Register <string_to_display<43>> in unit <command> has a constant value of 0 during circuit operation. The register is replaced by logic.
+INFO:Xst:2679 - Register <string_to_display<42>> in unit <command> has a constant value of 0 during circuit operation. The register is replaced by logic.
+INFO:Xst:2679 - Register <string_to_display<41>> in unit <command> has a constant value of 0 during circuit operation. The register is replaced by logic.
+INFO:Xst:2679 - Register <string_to_display<40>> in unit <command> has a constant value of 0 during circuit operation. The register is replaced by logic.
+INFO:Xst:2679 - Register <string_to_display<39>> in unit <command> has a constant value of 0 during circuit operation. The register is replaced by logic.
+INFO:Xst:2679 - Register <string_to_display<37>> in unit <command> has a constant value of 0 during circuit operation. The register is replaced by logic.
+INFO:Xst:2679 - Register <string_to_display<35>> in unit <command> has a constant value of 0 during circuit operation. The register is replaced by logic.
+INFO:Xst:2679 - Register <string_to_display<33>> in unit <command> has a constant value of 0 during circuit operation. The register is replaced by logic.
+INFO:Xst:2679 - Register <string_to_display<32>> in unit <command> has a constant value of 0 during circuit operation. The register is replaced by logic.
+INFO:Xst:2679 - Register <string_to_display<31>> in unit <command> has a constant value of 0 during circuit operation. The register is replaced by logic.
+INFO:Xst:2679 - Register <string_to_display<29>> in unit <command> has a constant value of 0 during circuit operation. The register is replaced by logic.
+INFO:Xst:2679 - Register <string_to_display<27>> in unit <command> has a constant value of 0 during circuit operation. The register is replaced by logic.
+INFO:Xst:2679 - Register <string_to_display<26>> in unit <command> has a constant value of 0 during circuit operation. The register is replaced by logic.
+INFO:Xst:2679 - Register <string_to_display<25>> in unit <command> has a constant value of 0 during circuit operation. The register is replaced by logic.
+INFO:Xst:2679 - Register <string_to_display<24>> in unit <command> has a constant value of 0 during circuit operation. The register is replaced by logic.
+INFO:Xst:2679 - Register <string_to_display<23>> in unit <command> has a constant value of 0 during circuit operation. The register is replaced by logic.
+INFO:Xst:2679 - Register <string_to_display<22>> in unit <command> has a constant value of 0 during circuit operation. The register is replaced by logic.
+INFO:Xst:2679 - Register <string_to_display<17>> in unit <command> has a constant value of 0 during circuit operation. The register is replaced by logic.
+INFO:Xst:2679 - Register <lcdrw> in unit <physical> has a constant value of 0 during circuit operation. The register is replaced by logic.
+
+Synthesizing Unit <spi_master_flash>.
+    Related source file is "spi_master_flash.v".
+    Using one-hot encoding for signal <current_state>.
+INFO:Xst:2117 - HDL ADVISOR - Mux Selector <current_state> of Case statement line 54 was re-encoded using one-hot encoding. The case statement will be optimized (default statement optimization), but this optimization may lead to design initialization problems. To ensure the design works safely, you can:
+   	- add an 'INIT' attribute on signal <current_state> (optimization is then done without any risk)
+   	- use the attribute 'signal_encoding user' to avoid onehot optimization
+   	- use the attribute 'safe_implementation yes' to force XST to perform a safe (but less efficient) optimization
+    Found 8x1-bit ROM for signal <$COND_10>.
+    Found 1-bit register for signal <chipsel>.
+    Found 8-bit register for signal <memory_type>.
+    Found 1-bit register for signal <spiclk>.
+    Found 8-bit register for signal <manufacturer_id>.
+    Found 1-bit register for signal <get_rdid_done>.
+    Found 1-bit register for signal <spimosi>.
+    Found 8-bit register for signal <memory_capacity>.
+    Found 7-bit register for signal <counter>.
+    Found 7-bit adder for signal <counter$addsub0000>.
+    Found 5-bit register for signal <current_state>.
+    Found 7-bit comparator greatequal for signal <manufacturer_id_0$cmp_ge0000> created at line 83.
+    Found 7-bit comparator greatequal for signal <memory_capacity_0$cmp_ge0000> created at line 85.
+    Found 7-bit comparator greatequal for signal <memory_type_0$cmp_ge0000> created at line 84.
+    Found 5-bit register for signal <next_state>.
+    Found 7-bit comparator less for signal <next_state$cmp_lt0000> created at line 75.
+    Found 7-bit comparator less for signal <next_state$cmp_lt0001> created at line 83.
+    Found 7-bit comparator less for signal <next_state$cmp_lt0002> created at line 84.
+    Found 7-bit comparator less for signal <next_state$cmp_lt0003> created at line 85.
+    Found 1-bit register for signal <spiclk_enable>.
+    Summary:
+	inferred   1 ROM(s).
+	inferred  41 D-type flip-flop(s).
+	inferred   1 Adder/Subtractor(s).
+	inferred   7 Comparator(s).
+Unit <spi_master_flash> synthesized.
+
+
+Synthesizing Unit <physical>.
+    Related source file is "physical.v".
+INFO:Xst:2117 - HDL ADVISOR - Mux Selector <current_state> of Case statement line 60 was re-encoded using one-hot encoding. The case statement will be optimized (default statement optimization), but this optimization may lead to design initialization problems. To ensure the design works safely, you can:
+   	- add an 'INIT' attribute on signal <current_state> (optimization is then done without any risk)
+   	- use the attribute 'signal_encoding user' to avoid onehot optimization
+   	- use the attribute 'safe_implementation yes' to force XST to perform a safe (but less efficient) optimization
+    Using one-hot encoding for signal <current_state>.
+    Found 1-bit register for signal <lcde>.
+    Found 4-bit register for signal <lcddat>.
+    Found 1-bit register for signal <init_done>.
+    Found 1-bit register for signal <send_data_done>.
+    Found 16-bit register for signal <count_up_to_value>.
+    Found 16-bit up counter for signal <counter>.
+    Found 16-bit comparator not equal for signal <counter$cmp_ne0000> created at line 49.
+    Found 16-bit register for signal <current_state>.
+    Found 16-bit comparator not equal for signal <init_done$cmp_ne0000> created at line 145.
+    Found 16-bit register for signal <next_state>.
+    Found 16-bit comparator equal for signal <send_data_done$cmp_eq0000> created at line 196.
+    Summary:
+	inferred   1 Counter(s).
+	inferred  39 D-type flip-flop(s).
+	inferred   3 Comparator(s).
+Unit <physical> synthesized.
+
+
+Synthesizing Unit <d_ff>.
+    Related source file is "d_ff.v".
+    Found 1-bit register for signal <q>.
+    Summary:
+	inferred   1 D-type flip-flop(s).
+Unit <d_ff> synthesized.
+
+
+Synthesizing Unit <clock_divider>.
+    Related source file is "clock_divider.v".
+Unit <clock_divider> synthesized.
+
+
+Synthesizing Unit <transaction>.
+    Related source file is "transaction.v".
+INFO:Xst:2117 - HDL ADVISOR - Mux Selector <current_state> of Case statement line 47 was re-encoded using one-hot encoding. The case statement will be optimized (default statement optimization), but this optimization may lead to design initialization problems. To ensure the design works safely, you can:
+   	- add an 'INIT' attribute on signal <current_state> (optimization is then done without any risk)
+   	- use the attribute 'signal_encoding user' to avoid onehot optimization
+   	- use the attribute 'safe_implementation yes' to force XST to perform a safe (but less efficient) optimization
+    Using one-hot encoding for signal <current_state>.
+INFO:Xst:2117 - HDL ADVISOR - Mux Selector <current_state> of Case statement line 47 was re-encoded using one-hot encoding. The case statement will be optimized (default statement optimization), but this optimization may lead to design initialization problems. To ensure the design works safely, you can:
+   	- add an 'INIT' attribute on signal <current_state> (optimization is then done without any risk)
+   	- use the attribute 'signal_encoding user' to avoid onehot optimization
+   	- use the attribute 'safe_implementation yes' to force XST to perform a safe (but less efficient) optimization
+INFO:Xst:2117 - HDL ADVISOR - Mux Selector <current_state> of Case statement line 47 was re-encoded using one-hot encoding. The case statement will be optimized (default statement optimization), but this optimization may lead to design initialization problems. To ensure the design works safely, you can:
+   	- add an 'INIT' attribute on signal <current_state> (optimization is then done without any risk)
+   	- use the attribute 'signal_encoding user' to avoid onehot optimization
+   	- use the attribute 'safe_implementation yes' to force XST to perform a safe (but less efficient) optimization
+INFO:Xst:2117 - HDL ADVISOR - Mux Selector <current_state> of Case statement line 47 was re-encoded using one-hot encoding. The case statement will be optimized (default statement optimization), but this optimization may lead to design initialization problems. To ensure the design works safely, you can:
+   	- add an 'INIT' attribute on signal <current_state> (optimization is then done without any risk)
+   	- use the attribute 'signal_encoding user' to avoid onehot optimization
+   	- use the attribute 'safe_implementation yes' to force XST to perform a safe (but less efficient) optimization
+    Found 1-bit register for signal <reset_done>.
+    Found 7-bit register for signal <current_state>.
+    Summary:
+	inferred   1 D-type flip-flop(s).
+Unit <transaction> synthesized.
+
+
+Synthesizing Unit <debounce_sync>.
+    Related source file is "debounce.v".
+Unit <debounce_sync> synthesized.
+
+
+Synthesizing Unit <oneshot>.
+    Related source file is "oneshot.v".
+Unit <oneshot> synthesized.
+
+
+Synthesizing Unit <command>.
+    Related source file is "command.v".
+WARNING:Xst:646 - Signal <w> is assigned but never used. This unconnected signal will be trimmed during the optimization process.
+WARNING:Xst:646 - Signal <hold> is assigned but never used. This unconnected signal will be trimmed during the optimization process.
+    Register <string_to_display<106>> equivalent to <string_to_display<104>> has been removed
+    Register <string_to_display<107>> equivalent to <string_to_display<104>> has been removed
+    Register <string_to_display<108>> equivalent to <string_to_display<104>> has been removed
+    Register <string_to_display<109>> equivalent to <string_to_display<104>> has been removed
+    Register <string_to_display<116>> equivalent to <string_to_display<104>> has been removed
+    Register <string_to_display<118>> equivalent to <string_to_display<104>> has been removed
+    Register <string_to_display<120>> equivalent to <string_to_display<104>> has been removed
+    Register <string_to_display<121>> equivalent to <string_to_display<104>> has been removed
+    Register <string_to_display<126>> equivalent to <string_to_display<104>> has been removed
+    Register <string_to_display<16>> equivalent to <string_to_display<104>> has been removed
+    Register <string_to_display<18>> equivalent to <string_to_display<104>> has been removed
+    Register <string_to_display<19>> equivalent to <string_to_display<104>> has been removed
+    Register <string_to_display<20>> equivalent to <string_to_display<104>> has been removed
+    Register <string_to_display<21>> equivalent to <string_to_display<104>> has been removed
+    Register <string_to_display<28>> equivalent to <string_to_display<104>> has been removed
+    Register <string_to_display<30>> equivalent to <string_to_display<104>> has been removed
+    Register <string_to_display<34>> equivalent to <string_to_display<104>> has been removed
+    Register <string_to_display<36>> equivalent to <string_to_display<104>> has been removed
+    Register <string_to_display<38>> equivalent to <string_to_display<104>> has been removed
+    Register <string_to_display<45>> equivalent to <string_to_display<104>> has been removed
+    Register <string_to_display<64>> equivalent to <string_to_display<104>> has been removed
+    Register <string_to_display<66>> equivalent to <string_to_display<104>> has been removed
+    Register <string_to_display<67>> equivalent to <string_to_display<104>> has been removed
+    Register <string_to_display<68>> equivalent to <string_to_display<104>> has been removed
+    Register <string_to_display<69>> equivalent to <string_to_display<104>> has been removed
+    Register <string_to_display<72>> equivalent to <string_to_display<104>> has been removed
+    Register <string_to_display<75>> equivalent to <string_to_display<104>> has been removed
+    Register <string_to_display<78>> equivalent to <string_to_display<104>> has been removed
+    Register <string_to_display<85>> equivalent to <string_to_display<104>> has been removed
+INFO:Xst:2117 - HDL ADVISOR - Mux Selector <current_state> of Case statement line 83 was re-encoded using one-hot encoding. The case statement will be optimized (default statement optimization), but this optimization may lead to design initialization problems. To ensure the design works safely, you can:
+   	- add an 'INIT' attribute on signal <current_state> (optimization is then done without any risk)
+   	- use the attribute 'signal_encoding user' to avoid onehot optimization
+   	- use the attribute 'safe_implementation yes' to force XST to perform a safe (but less efficient) optimization
+    Using one-hot encoding for signal <current_state>.
+    Found 4-bit register for signal <current_state>.
+    Found 8-bit register for signal <data_to_write>.
+    Found 5-bit register for signal <display_counter>.
+    Found 5-bit subtractor for signal <display_counter$addsub0000> created at line 129.
+    Found 1-bit register for signal <do_init>.
+    Found 1-bit register for signal <do_write_data>.
+    Found 4-bit comparator greater for signal <man_ID_out$cmp_gt0000> created at line 267.
+    Found 4-bit comparator greater for signal <man_ID_out$cmp_gt0001> created at line 267.
+    Found 4-bit comparator greater for signal <mem_CP_out$cmp_gt0000> created at line 267.
+    Found 4-bit comparator greater for signal <mem_CP_out$cmp_gt0001> created at line 267.
+    Found 4-bit comparator greater for signal <mem_TP_out$cmp_gt0000> created at line 267.
+    Found 4-bit comparator greater for signal <mem_TP_out$cmp_gt0001> created at line 267.
+    Found 4-bit register for signal <next_state>.
+    Found 17-bit register for signal <string_to_display<104:88>>.
+    Found 16-bit register for signal <string_to_display<63:48>>.
+    Found 16-bit register for signal <string_to_display<15:0>>.
+    Summary:
+	inferred  68 D-type flip-flop(s).
+	inferred   1 Adder/Subtractor(s).
+	inferred   6 Comparator(s).
+Unit <command> synthesized.
+
+INFO:Xst:1767 - HDL ADVISOR - Resource sharing has identified that some arithmetic operations in this design can share the same physical resources for reduced device utilization. For improved clock frequency you may try to disable resource sharing.
+
+=========================================================================
+HDL Synthesis Report
+
+Macro Statistics
+# ROMs                                                 : 1
+ 8x1-bit ROM                                           : 1
+# Adders/Subtractors                                   : 2
+ 5-bit subtractor                                      : 1
+ 7-bit adder                                           : 1
+# Counters                                             : 1
+ 16-bit up counter                                     : 1
+# Registers                                            : 99
+ 1-bit register                                        : 87
+ 16-bit register                                       : 3
+ 4-bit register                                        : 3
+ 5-bit register                                        : 3
+ 7-bit register                                        : 2
+ 8-bit register                                        : 1
+# Comparators                                          : 16
+ 16-bit comparator equal                               : 1
+ 16-bit comparator not equal                           : 2
+ 4-bit comparator greater                              : 6
+ 7-bit comparator greatequal                           : 3
+ 7-bit comparator less                                 : 4
+
+=========================================================================
+
+=========================================================================
+*                       Advanced HDL Synthesis                          *
+=========================================================================
+
+Reading core <ipcore_dir/icon.ngc>.
+Reading core <ipcore_dir/ila.ngc>.
+Loading core <icon> for timing and area information for instance <icon>.
+Loading core <ila> for timing and area information for instance <ila>.
+WARNING:Xst:1710 - FF/Latch <string_to_display_103> (without init value) has a constant value of 0 in block <command>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <string_to_display_95> (without init value) has a constant value of 0 in block <command>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <string_to_display_63> (without init value) has a constant value of 0 in block <command>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <string_to_display_55> (without init value) has a constant value of 0 in block <command>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <string_to_display_15> (without init value) has a constant value of 0 in block <command>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <string_to_display_7> (without init value) has a constant value of 0 in block <command>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <data_to_write_7> (without init value) has a constant value of 0 in block <command>. This FF/Latch will be trimmed during the optimization process.
+
+=========================================================================
+Advanced HDL Synthesis Report
+
+Macro Statistics
+# ROMs                                                 : 1
+ 8x1-bit ROM                                           : 1
+# Adders/Subtractors                                   : 2
+ 5-bit subtractor                                      : 1
+ 7-bit adder                                           : 1
+# Counters                                             : 1
+ 16-bit up counter                                     : 1
+# Registers                                            : 184
+ Flip-Flops                                            : 184
+# Comparators                                          : 16
+ 16-bit comparator equal                               : 1
+ 16-bit comparator not equal                           : 2
+ 4-bit comparator greater                              : 6
+ 7-bit comparator greatequal                           : 3
+ 7-bit comparator less                                 : 4
+
+=========================================================================
+
+=========================================================================
+*                         Low Level Synthesis                           *
+=========================================================================
+WARNING:Xst:1710 - FF/Latch <string_to_display_103> (without init value) has a constant value of 0 in block <command>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <string_to_display_95> (without init value) has a constant value of 0 in block <command>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <string_to_display_63> (without init value) has a constant value of 0 in block <command>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <string_to_display_55> (without init value) has a constant value of 0 in block <command>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <string_to_display_15> (without init value) has a constant value of 0 in block <command>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <string_to_display_7> (without init value) has a constant value of 0 in block <command>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <data_to_write_7> (without init value) has a constant value of 0 in block <command>. This FF/Latch will be trimmed during the optimization process.
+INFO:Xst:2261 - The FF/Latch <string_to_display_61> in Unit <command> is equivalent to the following FF/Latch, which will be removed : <string_to_display_60> 
+INFO:Xst:2261 - The FF/Latch <string_to_display_13> in Unit <command> is equivalent to the following FF/Latch, which will be removed : <string_to_display_12> 
+INFO:Xst:2261 - The FF/Latch <string_to_display_101> in Unit <command> is equivalent to the following FF/Latch, which will be removed : <string_to_display_100> 
+INFO:Xst:2261 - The FF/Latch <string_to_display_52> in Unit <command> is equivalent to the following FF/Latch, which will be removed : <string_to_display_53> 
+INFO:Xst:2261 - The FF/Latch <string_to_display_5> in Unit <command> is equivalent to the following FF/Latch, which will be removed : <string_to_display_4> 
+INFO:Xst:2261 - The FF/Latch <string_to_display_93> in Unit <command> is equivalent to the following FF/Latch, which will be removed : <string_to_display_92> 
+
+Optimizing unit <command> ...
+
+Optimizing unit <spi_master_flash> ...
+
+Optimizing unit <physical> ...
+
+Optimizing unit <transaction> ...
+
+Mapping all equations...
+Building and optimizing final netlist ...
+Found area constraint ratio of 100 (+ 5) on block command, actual ratio is 9.
+FlipFlop SPI_FLASH/spiclk has been replicated 1 time(s) to handle iob=true attribute.
+FlipFlop SPI_FLASH/chipsel has been replicated 1 time(s) to handle iob=true attribute.
+FlipFlop SPI_FLASH/spimosi has been replicated 1 time(s) to handle iob=true attribute.
+
+Final Macro Processing ...
+
+=========================================================================
+Final Register Report
+
+Macro Statistics
+# Registers                                            : 190
+ Flip-Flops                                            : 190
+
+=========================================================================
+
+=========================================================================
+*                           Partition Report                            *
+=========================================================================
+
+Partition Implementation Status
+-------------------------------
+
+  No Partitions were found in this design.
+
+-------------------------------
+
+=========================================================================
+*                            Final Report                               *
+=========================================================================
+Final Results
+RTL Top Level Output File Name     : command.ngr
+Top Level Output File Name         : command
+Output Format                      : NGC
+Optimization Goal                  : Speed
+Keep Hierarchy                     : No
+
+Design Statistics
+# IOs                              : 19
+
+Cell Usage :
+# BELS                             : 774
+#      GND                         : 3
+#      INV                         : 10
+#      LUT1                        : 61
+#      LUT2                        : 50
+#      LUT2_L                      : 1
+#      LUT3                        : 111
+#      LUT4                        : 290
+#      LUT4_L                      : 1
+#      MUXCY                       : 40
+#      MUXCY_L                     : 72
+#      MUXF5                       : 45
+#      MUXF6                       : 10
+#      VCC                         : 3
+#      XORCY                       : 77
+# FlipFlops/Latches                : 470
+#      FD                          : 27
+#      FDC                         : 39
+#      FDC_1                       : 25
+#      FDCE                        : 64
+#      FDCE_1                      : 4
+#      FDE                         : 103
+#      FDP                         : 25
+#      FDP_1                       : 3
+#      FDPE                        : 27
+#      FDPE_1                      : 1
+#      FDR                         : 50
+#      FDRE                        : 79
+#      FDRS                        : 4
+#      FDS                         : 18
+#      LDC                         : 1
+# RAMS                             : 13
+#      RAMB16_S1_S2                : 13
+# Shift Registers                  : 81
+#      SRL16                       : 24
+#      SRL16E                      : 1
+#      SRLC16E                     : 56
+# Clock Buffers                    : 3
+#      BUFG                        : 3
+# IO Buffers                       : 19
+#      IBUF                        : 3
+#      IBUFG                       : 1
+#      OBUF                        : 15
+# DCMs                             : 1
+#      DCM_SP                      : 1
+# Others                           : 4
+#      BSCAN_SPARTAN3              : 1
+#      TIMESPEC                    : 3
+=========================================================================
+
+Device utilization summary:
+---------------------------
+
+Selected Device : 3s500efg320-4 
+
+ Number of Slices:                      421  out of   4656     9%  
+ Number of Slice Flip Flops:            461  out of   9312     4%  
+ Number of 4 input LUTs:                605  out of   9312     6%  
+    Number used as logic:               524
+    Number used as Shift registers:      81
+ Number of IOs:                          19
+ Number of bonded IOBs:                  19  out of    232     8%  
+    IOB Flip Flops:                       9
+ Number of BRAMs:                        13  out of     20    65%  
+ Number of GCLKs:                         3  out of     24    12%  
+ Number of DCMs:                          1  out of      4    25%  
+
+---------------------------
+Partition Resource Summary:
+---------------------------
+
+  No Partitions were found in this design.
+
+---------------------------
+
+
+=========================================================================
+TIMING REPORT
+
+NOTE: THESE TIMING NUMBERS ARE ONLY A SYNTHESIS ESTIMATE.
+      FOR ACCURATE TIMING INFORMATION PLEASE REFER TO THE TRACE REPORT
+      GENERATED AFTER PLACE-and-ROUTE.
+
+Clock Information:
+------------------
+----------------------------------------------------------------------+------------------------------------------------+-------+
+Clock Signal                                                          | Clock buffer(FF name)                          | Load  |
+----------------------------------------------------------------------+------------------------------------------------+-------+
+icon/U0/U_ICON/I_YES_BSCAN.U_BS/DRCK1                                 | BUFG                                           | 154   |
+icon/U0/iUPDATE_OUT                                                   | NONE(icon/U0/U_ICON/U_iDATA_CMD)               | 1     |
+CCLK                                                                  | CLK_DIV/DCM_SP_INST:CLK0                       | 231   |
+icon/CONTROL0<13>(icon/U0/U_ICON/U_CTRL_OUT/F_NCP[0].F_CMD[9].U_LCE:O)| NONE(*)(ila/U0/I_NO_D.U_ILA/U_STAT/U_DIRTY_LDC)| 1     |
+CCLK                                                                  | CLK_DIV/DCM_SP_INST:CLKDV                      | 183   |
+SPI_FLASH/spiclk                                                      | NONE(SPI_FLASH/counter_6)                      | 7     |
+----------------------------------------------------------------------+------------------------------------------------+-------+
+(*) This 1 clock signal(s) are generated by combinatorial logic,
+and XST is not able to identify which are the primary clock signals.
+Please use the CLOCK_SIGNAL constraint to specify the clock signal(s) generated by combinatorial logic.
+INFO:Xst:2169 - HDL ADVISOR - Some clock signals were not automatically buffered by XST with BUFG/BUFR resources. Please use the buffer_type constraint in order to insert these buffers to the clock signals to help prevent skew problems.
+
+Asynchronous Control Signals Information:
+----------------------------------------
+-------------------------------------------------------------------------------------------------+--------------------------------------------------------------------------------------------------------------------------+-------+
+Control Signal                                                                                   | Buffer(FF name)                                                                                                          | Load  |
+-------------------------------------------------------------------------------------------------+--------------------------------------------------------------------------------------------------------------------------+-------+
+BTN0                                                                                             | IBUF                                                                                                                     | 112   |
+ila/N0(ila/XST_GND:G)                                                                            | NONE(ila/U0/I_NO_D.U_ILA/U_RST/U_POR)                                                                                    | 25    |
+icon/CONTROL0<20>(icon/U0/U_ICON/U_CTRL_OUT/F_NCP[0].F_CMD[0].U_HCE:O)                           | NONE(ila/U0/I_NO_D.U_ILA/U_TRIG/U_TM/G_NMU[0].U_M/U_MU/I_MUT_GAND.U_match/I_SRL16.U_GAND_SRL16/I_YES_IREG.F_TW[0].U_IREG)| 24    |
+icon/U0/U_ICON/U_CMD/iSEL_n(icon/U0/U_ICON/U_CMD/U_SEL_n:O)                                      | NONE(icon/U0/U_ICON/U_CMD/G_TARGET[10].I_NE0.U_TARGET)                                                                   | 10    |
+ila/U0/I_NO_D.U_ILA/U_RST/U_ARM_XFER/iCLR(ila/U0/I_NO_D.U_ILA/U_RST/U_ARM_XFER/U_CLEAR:O)        | NONE(ila/U0/I_NO_D.U_ILA/U_RST/U_ARM_XFER/U_DOUT0)                                                                       | 4     |
+ila/U0/I_NO_D.U_ILA/U_RST/U_HALT_XFER/iCLR(ila/U0/I_NO_D.U_ILA/U_RST/U_HALT_XFER/U_CLEAR:O)      | NONE(ila/U0/I_NO_D.U_ILA/U_RST/U_HALT_XFER/U_DOUT0)                                                                      | 4     |
+ila/U0/I_NO_D.U_ILA/U_STAT/U_DSL1/iCLR(ila/U0/I_NO_D.U_ILA/U_STAT/U_DSL1/U_CLEAR:O)              | NONE(ila/U0/I_NO_D.U_ILA/U_STAT/U_DSL1/U_DOUT0)                                                                          | 4     |
+ila/U0/I_NO_D.U_ILA/iARM(ila/U0/I_NO_D.U_ILA/U_RST/U_ARM_XFER/U_GEN_DELAY[3].U_FD:Q)             | NONE(ila/U0/I_NO_D.U_ILA/U_STAT/U_DIRTY_FDCE)                                                                            | 2     |
+icon/CONTROL0<13>(icon/U0/U_ICON/U_CTRL_OUT/F_NCP[0].F_CMD[9].U_LCE:O)                           | NONE(ila/U0/I_NO_D.U_ILA/U_STAT/U_DIRTY_FDPE)                                                                            | 1     |
+icon/U0/U_ICON/iSEL_n(icon/U0/U_ICON/U_iSEL_n:O)                                                 | NONE(icon/U0/U_ICON/U_iDATA_CMD)                                                                                         | 1     |
+ila/U0/I_NO_D.U_ILA/U_STAT/ACTRESET_pulse(ila/U0/I_NO_D.U_ILA/U_STAT/U_RESET_EDGE/I_H2L.U_DOUT:Q)| NONE(ila/U0/I_NO_D.U_ILA/U_STAT/U_RISING)                                                                                | 1     |
+ila/U0/I_NO_D.U_ILA/iRESET<1>(ila/U0/I_NO_D.U_ILA/U_RST/G_RST[1].U_RST:Q)                        | NONE(ila/U0/I_NO_D.U_ILA/U_TRIG/U_TM/G_NMU[0].U_M/U_MU/I_OREG.I_YES_OREG.U_OREG)                                         | 1     |
+-------------------------------------------------------------------------------------------------+--------------------------------------------------------------------------------------------------------------------------+-------+
+
+Timing Summary:
+---------------
+Speed Grade: -4
+
+   Minimum period: 12.983ns (Maximum Frequency: 77.024MHz)
+   Minimum input arrival time before clock: 5.031ns
+   Maximum output required time after clock: 6.534ns
+   Maximum combinational path delay: No path found
+
+=========================================================================
+Timing constraint: TS_J_CLK = PERIOD TIMEGRP "J_CLK" 30 nS HIGH 15 nS
+  Clock period: 10.138ns (frequency: 98.639MHz)
+  Total number of paths / destination ports: 3840 / 468
+  Number of failed paths / ports: 0 (0.00%) / 0 (0.00%)
+-------------------------------------------------------------------------
+Slack:                  19.862ns
+  Source:               ila/U0/I_NO_D.U_ILA/U_CAPSTOR/I_CASE1.I_NO_TB.I_RT1.U_RAM/G_BRAM[8].U_BRAM/ram_rt1_s1_s2_if.ram_rt1_s1_s2_i (RAM)
+  Destination:          icon/U0/U_ICON/U_TDO_reg (FF)
+  Data Path Delay:      10.138ns (Levels of Logic = 9)
+  Source Clock:         icon/U0/U_ICON/I_YES_BSCAN.U_BS/DRCK1 rising at 0.000ns
+  Destination Clock:    icon/U0/U_ICON/I_YES_BSCAN.U_BS/DRCK1 rising at 30.000ns
+
+  Data Path: ila/U0/I_NO_D.U_ILA/U_CAPSTOR/I_CASE1.I_NO_TB.I_RT1.U_RAM/G_BRAM[8].U_BRAM/ram_rt1_s1_s2_if.ram_rt1_s1_s2_i (RAM) to icon/U0/U_ICON/U_TDO_reg (FF)
+                                Gate     Net
+    Cell:in->out      fanout   Delay   Delay  Logical Name (Net Name)
+    ----------------------------------------  ------------
+     RAMB16_S1_S2:CLKA->DOA0    1   2.800   0.499  U0/I_NO_D.U_ILA/U_CAPSTOR/I_CASE1.I_NO_TB.I_RT1.U_RAM/G_BRAM[8].U_BRAM/ram_rt1_s1_s2_if.ram_rt1_s1_s2_i (U0/I_NO_D.U_ILA/U_CAPSTOR/I_CASE1.I_NO_TB.I_RT1.U_RAM/localDOA<8>)
+     LUT3:I1->O            1   0.704   0.000  U0/I_NO_D.U_ILA/U_CAPSTOR/I_CASE1.I_NO_TB.I_RT1.U_RAM/I_MUX.U_RD_DATA/U_CS_MUX/I4.U_MUX16/Mmux_O_11 (U0/I_NO_D.U_ILA/U_CAPSTOR/I_CASE1.I_NO_TB.I_RT1.U_RAM/I_MUX.U_RD_DATA/U_CS_MUX/I4.U_MUX16/Mmux_O_11)
+     MUXF5:I0->O           1   0.321   0.499  U0/I_NO_D.U_ILA/U_CAPSTOR/I_CASE1.I_NO_TB.I_RT1.U_RAM/I_MUX.U_RD_DATA/U_CS_MUX/I4.U_MUX16/Mmux_O_9_f5 (U0/I_NO_D.U_ILA/U_CAPSTOR/I_CASE1.I_NO_TB.I_RT1.U_RAM/I_MUX.U_RD_DATA/U_CS_MUX/I4.U_MUX16/Mmux_O_9_f5)
+     LUT2:I1->O            1   0.704   0.000  U0/I_NO_D.U_ILA/U_CAPSTOR/I_CASE1.I_NO_TB.I_RT1.U_RAM/muxAddrFF<3>272 (U0/I_NO_D.U_ILA/U_CAPSTOR/I_CASE1.I_NO_TB.I_RT1.U_RAM/muxAddrFF<3>272)
+     MUXF5:I0->O           1   0.321   0.455  U0/I_NO_D.U_ILA/U_CAPSTOR/I_CASE1.I_NO_TB.I_RT1.U_RAM/muxAddrFF<3>27_f5 (U0/I_NO_D.U_ILA/U_CAPSTOR/I_CASE1.I_NO_TB.I_RT1.U_RAM/muxAddrFF<3>27)
+     LUT3:I2->O            1   0.704   0.499  U0/I_NO_D.U_ILA/U_CAPSTOR/I_CASE1.I_NO_TB.I_RT1.U_RAM/muxAddrFF<3>37 (U0/I_NO_D.U_ILA/iDATA_DOUT)
+     LUT3:I1->O            1   0.704   0.595  U0/I_NO_D.U_ILA/U_DOUT (CONTROL<3>)
+     end scope: 'ila'
+     begin scope: 'icon'
+     LUT4:I0->O            1   0.704   0.000  U0/U_ICON/U_TDO_MUX/U_CS_MUX/I4.U_MUX16/Mmux_O_4 (U0/U_ICON/U_TDO_MUX/U_CS_MUX/I4.U_MUX16/Mmux_O_4)
+     MUXF5:I0->O           1   0.321   0.000  U0/U_ICON/U_TDO_MUX/U_CS_MUX/I4.U_MUX16/Mmux_O_2_f5 (U0/U_ICON/iTDO_next)
+     FDE:D                     0.308          U0/U_ICON/U_TDO_reg
+    ----------------------------------------
+    Total                     10.138ns (7.591ns logic, 2.547ns route)
+                                       (74.9% logic, 25.1% route)
+
+=========================================================================
+Timing constraint: TS_U_TO_J = MAXDELAY FROM TIMEGRP "U_CLK" TO TIMEGRP "J_CLK" 15 nS
+  Clock period: 3.494ns (frequency: 286.205MHz)
+  Total number of paths / destination ports: 18 / 18
+  Number of failed paths / ports: 0 (0.00%) / 0 (0.00%)
+-------------------------------------------------------------------------
+Slack:                  11.506ns
+  Source:               icon/U0/U_ICON/U_iDATA_CMD (FF)
+  Destination:          icon/U0/U_ICON/U_SYNC/G_SYNC_WORD[6].I_EQ0.U_FDR (FF)
+  Data Path Delay:      3.494ns (Levels of Logic = 1)
+  Source Clock:         icon/U0/iUPDATE_OUT rising at 0.000ns
+  Destination Clock:    icon/U0/U_ICON/I_YES_BSCAN.U_BS/DRCK1 rising at 15.000ns
+
+  Data Path: icon/U0/U_ICON/U_iDATA_CMD (FF) to icon/U0/U_ICON/U_SYNC/G_SYNC_WORD[6].I_EQ0.U_FDR (FF)
+                                Gate     Net
+    Cell:in->out      fanout   Delay   Delay  Logical Name (Net Name)
+    ----------------------------------------  ------------
+     FDC:C->Q              3   0.591   0.531  U0/U_ICON/U_iDATA_CMD (U0/U_ICON/iDATA_CMD)
+     INV:I->O              8   0.704   0.757  U0/U_ICON/U_SYNC/U_iDATA_CMD_n (U0/U_ICON/U_SYNC/iDATA_CMD_n)
+     FDR:R                     0.911          U0/U_ICON/U_SYNC/G_SYNC_WORD[6].I_EQ0.U_FDR
+    ----------------------------------------
+    Total                      3.494ns (2.206ns logic, 1.288ns route)
+                                       (63.1% logic, 36.9% route)
+
+=========================================================================
+Timing constraint: TS_U_TO_U = MAXDELAY FROM TIMEGRP "U_CLK" TO TIMEGRP "U_CLK" 15 nS
+  Clock period: 2.554ns (frequency: 391.543MHz)
+  Total number of paths / destination ports: 1 / 1
+  Number of failed paths / ports: 0 (0.00%) / 0 (0.00%)
+-------------------------------------------------------------------------
+Slack:                  12.446ns
+  Source:               icon/U0/U_ICON/U_iDATA_CMD (FF)
+  Destination:          icon/U0/U_ICON/U_iDATA_CMD (FF)
+  Data Path Delay:      2.554ns (Levels of Logic = 1)
+  Source Clock:         icon/U0/iUPDATE_OUT rising at 0.000ns
+  Destination Clock:    icon/U0/iUPDATE_OUT rising at 15.000ns
+
+  Data Path: icon/U0/U_ICON/U_iDATA_CMD (FF) to icon/U0/U_ICON/U_iDATA_CMD (FF)
+                                Gate     Net
+    Cell:in->out      fanout   Delay   Delay  Logical Name (Net Name)
+    ----------------------------------------  ------------
+     FDC:C->Q              3   0.591   0.531  U0/U_ICON/U_iDATA_CMD (U0/U_ICON/iDATA_CMD)
+     INV:I->O              1   0.704   0.420  U0/U_ICON/U_iDATA_CMD_n (U0/U_ICON/iDATA_CMD_n)
+     FDC:D                     0.308          U0/U_ICON/U_iDATA_CMD
+    ----------------------------------------
+    Total                      2.554ns (1.603ns logic, 0.951ns route)
+                                       (62.8% logic, 37.2% route)
+
+=========================================================================
+Timing constraint: TS_J_TO_D = FROM TIMEGRP "J_CLK" TO TIMEGRP "D_CLK" TIG;
+  Clock period: 6.578ns (frequency: 152.017MHz)
+  Total number of paths / destination ports: 478 / 266
+  Number of failed paths / ports: 0 (0.00%) / 0 (0.00%)
+-------------------------------------------------------------------------
+Delay:                  6.578ns
+  Source:               icon/U0/U_ICON/U_CMD/G_TARGET[12].I_NE0.U_TARGET (FF)
+  Destination:          ila/U0/I_NO_D.U_ILA/U_CAPSTOR/I_CASE1.I_NO_TB.I_RT1.U_RAM/G_BRAM[0].U_BRAM/ram_rt1_s1_s2_if.ram_rt1_s1_s2_i (RAM)
+  Data Path Delay:      6.578ns (Levels of Logic = 3)
+  Source Clock:         icon/U0/U_ICON/I_YES_BSCAN.U_BS/DRCK1 rising at 0.000ns
+  Destination Clock:    icon/U0/U_ICON/I_YES_BSCAN.U_BS/DRCK1 rising at 0.000ns
+
+  Data Path: icon/U0/U_ICON/U_CMD/G_TARGET[12].I_NE0.U_TARGET (FF) to ila/U0/I_NO_D.U_ILA/U_CAPSTOR/I_CASE1.I_NO_TB.I_RT1.U_RAM/G_BRAM[0].U_BRAM/ram_rt1_s1_s2_if.ram_rt1_s1_s2_i (RAM)
+                                Gate     Net
+    Cell:in->out      fanout   Delay   Delay  Logical Name (Net Name)
+    ----------------------------------------  ------------
+     FDCE:C->Q            19   0.591   1.260  U0/U_ICON/U_CMD/G_TARGET[12].I_NE0.U_TARGET (U0/U_ICON/iCORE_ID<0>)
+     LUT4:I0->O           32   0.704   1.297  U0/U_ICON/U_CMD/U_CORE_ID_SEL/I4.FI[0].U_LUT (U0/U_ICON/iCORE_ID_SEL<0>)
+     LUT4:I2->O           24   0.704   1.252  U0/U_ICON/U_CTRL_OUT/F_NCP[0].F_CMD[2].U_LCE (CONTROL0<6>)
+     end scope: 'icon'
+     begin scope: 'ila'
+     RAMB16_S1_S2:ENA          0.770          U0/I_NO_D.U_ILA/U_CAPSTOR/I_CASE1.I_NO_TB.I_RT1.U_RAM/G_BRAM[0].U_BRAM/ram_rt1_s1_s2_if.ram_rt1_s1_s2_i
+    ----------------------------------------
+    Total                      6.578ns (2.769ns logic, 3.809ns route)
+                                       (42.1% logic, 57.9% route)
+
+=========================================================================
+Timing constraint: TS_D_TO_J = FROM TIMEGRP "D_CLK" TO TIMEGRP "J_CLK" TIG;
+  Clock period: 10.138ns (frequency: 98.639MHz)
+  Total number of paths / destination ports: 449 / 418
+  Number of failed paths / ports: 0 (0.00%) / 0 (0.00%)
+-------------------------------------------------------------------------
+Delay:                  10.138ns
+  Source:               ila/U0/I_NO_D.U_ILA/U_CAPSTOR/I_CASE1.I_NO_TB.I_RT1.U_RAM/G_BRAM[8].U_BRAM/ram_rt1_s1_s2_if.ram_rt1_s1_s2_i (RAM)
+  Destination:          icon/U0/U_ICON/U_TDO_reg (FF)
+  Data Path Delay:      10.138ns (Levels of Logic = 9)
+  Source Clock:         icon/U0/U_ICON/I_YES_BSCAN.U_BS/DRCK1 rising at 0.000ns
+  Destination Clock:    icon/U0/U_ICON/I_YES_BSCAN.U_BS/DRCK1 rising at 0.000ns
+
+  Data Path: ila/U0/I_NO_D.U_ILA/U_CAPSTOR/I_CASE1.I_NO_TB.I_RT1.U_RAM/G_BRAM[8].U_BRAM/ram_rt1_s1_s2_if.ram_rt1_s1_s2_i (RAM) to icon/U0/U_ICON/U_TDO_reg (FF)
+                                Gate     Net
+    Cell:in->out      fanout   Delay   Delay  Logical Name (Net Name)
+    ----------------------------------------  ------------
+     RAMB16_S1_S2:CLKA->DOA0    1   2.800   0.499  U0/I_NO_D.U_ILA/U_CAPSTOR/I_CASE1.I_NO_TB.I_RT1.U_RAM/G_BRAM[8].U_BRAM/ram_rt1_s1_s2_if.ram_rt1_s1_s2_i (U0/I_NO_D.U_ILA/U_CAPSTOR/I_CASE1.I_NO_TB.I_RT1.U_RAM/localDOA<8>)
+     LUT3:I1->O            1   0.704   0.000  U0/I_NO_D.U_ILA/U_CAPSTOR/I_CASE1.I_NO_TB.I_RT1.U_RAM/I_MUX.U_RD_DATA/U_CS_MUX/I4.U_MUX16/Mmux_O_11 (U0/I_NO_D.U_ILA/U_CAPSTOR/I_CASE1.I_NO_TB.I_RT1.U_RAM/I_MUX.U_RD_DATA/U_CS_MUX/I4.U_MUX16/Mmux_O_11)
+     MUXF5:I0->O           1   0.321   0.499  U0/I_NO_D.U_ILA/U_CAPSTOR/I_CASE1.I_NO_TB.I_RT1.U_RAM/I_MUX.U_RD_DATA/U_CS_MUX/I4.U_MUX16/Mmux_O_9_f5 (U0/I_NO_D.U_ILA/U_CAPSTOR/I_CASE1.I_NO_TB.I_RT1.U_RAM/I_MUX.U_RD_DATA/U_CS_MUX/I4.U_MUX16/Mmux_O_9_f5)
+     LUT2:I1->O            1   0.704   0.000  U0/I_NO_D.U_ILA/U_CAPSTOR/I_CASE1.I_NO_TB.I_RT1.U_RAM/muxAddrFF<3>272 (U0/I_NO_D.U_ILA/U_CAPSTOR/I_CASE1.I_NO_TB.I_RT1.U_RAM/muxAddrFF<3>272)
+     MUXF5:I0->O           1   0.321   0.455  U0/I_NO_D.U_ILA/U_CAPSTOR/I_CASE1.I_NO_TB.I_RT1.U_RAM/muxAddrFF<3>27_f5 (U0/I_NO_D.U_ILA/U_CAPSTOR/I_CASE1.I_NO_TB.I_RT1.U_RAM/muxAddrFF<3>27)
+     LUT3:I2->O            1   0.704   0.499  U0/I_NO_D.U_ILA/U_CAPSTOR/I_CASE1.I_NO_TB.I_RT1.U_RAM/muxAddrFF<3>37 (U0/I_NO_D.U_ILA/iDATA_DOUT)
+     LUT3:I1->O            1   0.704   0.595  U0/I_NO_D.U_ILA/U_DOUT (CONTROL<3>)
+     end scope: 'ila'
+     begin scope: 'icon'
+     LUT4:I0->O            1   0.704   0.000  U0/U_ICON/U_TDO_MUX/U_CS_MUX/I4.U_MUX16/Mmux_O_4 (U0/U_ICON/U_TDO_MUX/U_CS_MUX/I4.U_MUX16/Mmux_O_4)
+     MUXF5:I0->O           1   0.321   0.000  U0/U_ICON/U_TDO_MUX/U_CS_MUX/I4.U_MUX16/Mmux_O_2_f5 (U0/U_ICON/iTDO_next)
+     FDE:D                     0.308          U0/U_ICON/U_TDO_reg
+    ----------------------------------------
+    Total                     10.138ns (7.591ns logic, 2.547ns route)
+                                       (74.9% logic, 25.1% route)
+
+=========================================================================
+Timing constraint: TS_D2_TO_T2 = FROM TIMEGRP "D2_CLK" TO TIMEGRP "FFS" TIG;
+  Clock period: 6.513ns (frequency: 153.539MHz)
+  Total number of paths / destination ports: 3 / 3
+  Number of failed paths / ports: 0 (0.00%) / 0 (0.00%)
+-------------------------------------------------------------------------
+Delay:                  6.513ns
+  Source:               ila/U0/I_NO_D.U_ILA/U_STAT/U_DIRTY_LDC (LATCH)
+  Destination:          ila/U0/I_NO_D.U_ILA/U_STAT/U_TDO (FF)
+  Data Path Delay:      6.513ns (Levels of Logic = 6)
+  Source Clock:         icon/CONTROL0<13> falling at 0.000ns
+  Destination Clock:    icon/U0/U_ICON/I_YES_BSCAN.U_BS/DRCK1 rising at 0.000ns
+
+  Data Path: ila/U0/I_NO_D.U_ILA/U_STAT/U_DIRTY_LDC (LATCH) to ila/U0/I_NO_D.U_ILA/U_STAT/U_TDO (FF)
+                                Gate     Net
+    Cell:in->out      fanout   Delay   Delay  Logical Name (Net Name)
+    ----------------------------------------  ------------
+     LDC:G->Q              1   0.676   0.595  U0/I_NO_D.U_ILA/U_STAT/U_DIRTY_LDC (U0/I_NO_D.U_ILA/U_STAT/DIRTY_SEL)
+     LUT3:I0->O            3   0.704   0.566  U0/I_NO_D.U_ILA/U_STAT/DIRTY_dstat1 (U0/I_NO_D.U_ILA/U_STAT/DIRTY_dstat)
+     LUT3:I2->O            1   0.704   0.000  U0/I_NO_D.U_ILA/U_STAT/U_DMUX/U_CS_MUX/I3.U_MUX8/Mmux_O_91_F (N48)
+     MUXF5:I0->O           1   0.321   0.455  U0/I_NO_D.U_ILA/U_STAT/U_DMUX/U_CS_MUX/I3.U_MUX8/Mmux_O_91 (U0/I_NO_D.U_ILA/U_STAT/U_DMUX/U_CS_MUX/I3.U_MUX8/Mmux_O_91)
+     LUT4:I2->O            1   0.704   0.000  U0/I_NO_D.U_ILA/U_STAT/U_DMUX/U_CS_MUX/I3.U_MUX8/Mmux_O_2_f5_F (N42)
+     MUXF5:I0->O           1   0.321   0.455  U0/I_NO_D.U_ILA/U_STAT/U_DMUX/U_CS_MUX/I3.U_MUX8/Mmux_O_2_f5 (U0/I_NO_D.U_ILA/U_STAT/TDO_mux_in<0>1)
+     LUT4:I2->O            1   0.704   0.000  U0/I_NO_D.U_ILA/U_STAT/U_MUX/U_CS_MUX/I1.U_MUX2/O87 (U0/I_NO_D.U_ILA/U_STAT/TDO_next)
+     FDE:D                     0.308          U0/I_NO_D.U_ILA/U_STAT/U_TDO
+    ----------------------------------------
+    Total                      6.513ns (4.442ns logic, 2.071ns route)
+                                       (68.2% logic, 31.8% route)
+
+=========================================================================
+Timing constraint: TS_J2_TO_D2 = FROM TIMEGRP "FFS" TO TIMEGRP "D2_CLK" TIG;
+-------------------------------------------------------------------------
+WARNING:Xst:1415 - No path found for this constraint.
+
+=========================================================================
+Timing constraint: TS_J3_TO_D2 = FROM TIMEGRP "FFS" TO TIMEGRP "D2_CLK" TIG;
+-------------------------------------------------------------------------
+WARNING:Xst:1415 - No path found for this constraint.
+
+=========================================================================
+Timing constraint: TS_J4_TO_D2 = FROM TIMEGRP "FFS" TO TIMEGRP "D2_CLK" TIG;
+-------------------------------------------------------------------------
+WARNING:Xst:1415 - No path found for this constraint.
+
+=========================================================================
+
+
+Total REAL time to Xst completion: 16.00 secs
+Total CPU time to Xst completion: 16.01 secs
+ 
+--> 
+
+Total memory usage is 270456 kilobytes
+
+Number of errors   :    0 (   0 filtered)
+Number of warnings :   21 (   0 filtered)
+Number of infos    :   66 (   0 filtered)
+

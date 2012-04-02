@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- IMPORTANT: This is an internal file that has been generated
+     by the Xilinx ISE software.  Any direct editing or
+     changes made to this file may result in unpredictable
+     behavior or data corruption.  It is strongly advised that
+     users do not edit the contents of this file. -->
+<messages>
+<msg type="info" file="sim" num="0" delta="new" >Generating component instance &apos;<arg fmt="%s" index="1">icon</arg>&apos; of &apos;<arg fmt="%s" index="2">xilinx.com:ip:chipscope_icon:1.05.a</arg>&apos; from &apos;<arg fmt="%s" index="3">C:\Xilinx\13.2\ISE_DS\ISE\coregen\iprepo\Chipscope\pcores\chipscope_icon_v1_05_a\chipscope_icon_v1_05_a.xcd</arg>&apos;.
+</msg>
+
+</messages>
+

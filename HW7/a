@@ -1,0 +1,18 @@
+vlog HW7/d_ff.v
+vlog HW7/debounce.v
+vlog HW7/oneshot.v
+vlog HW7/clock_divider_tb.v
+vlog HW7/spi_master_flash.v
+vlog HW7/physical.v
+vlog HW7/transaction.v
+vlog HW7/command.v
+vlog HW7/bus_if.v
+vlog HW7/command_if.v
+vlog HW7/init_detector.v
+vlog HW7/lcd_control.v
+vlog HW7/testbench.v
+vsim -novopt testbench
+source lcd_gui.tcl
+
+do wave.do
+run 50 ms
