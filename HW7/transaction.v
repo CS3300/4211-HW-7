@@ -4,12 +4,14 @@ module transaction(
   input wire do_init,
   input wire do_write_data,
   input wire [7:0] data_to_write,
+  input wire do_return_cursor_home,
   
   output wire LCDE_q,
   output wire LCDRS_q,
   output wire LCDRW_q,
   output wire [3:0] LCDDAT_q,
   output reg  reset_done,
+  output reg  return_cursor_home_done,
 
   inout init_done,
   inout send_data_done
@@ -49,6 +51,7 @@ always@* begin
       do_send_data <= 1'b0;
       data_to_send <= 8'h00;
       lcdrs_in <= 0;
+      return_cursor_home_done <= 1'b0;
       if(init_done) begin
         next_state <= FUNCTION_SET;
       end else begin
@@ -90,6 +93,7 @@ always@* begin
         data_to_send <= 8'h0;
         lcdrs_in <= 0;
         do_send_data <= 1'b0;
+        return_cursor_home_done <= 1;
         next_state <= IDLE;
       end
     end
@@ -100,8 +104,12 @@ always@* begin
         lcdrs_in <= 1;      
         next_state <= DO_WRITE_RAM;
         data_to_send <= data_to_write;
+      end else if(do_return_cursor_home) begin
+        next_state <= CLEAR_DISPLAY;
+        return_cursor_home_done <= 0;
+        lcdrs_in <= 0;      
       end else begin
-          next_state <= IDLE;
+        next_state <= IDLE;
         data_to_send <= 8'h0;
         lcdrs_in <= 0;
       end

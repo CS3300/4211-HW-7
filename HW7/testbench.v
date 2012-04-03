@@ -85,21 +85,21 @@ initial begin
   @(negedge CCLK);
   end
   BTN1 = 1'b0;
-  for(i = 0; i<64'hcebb0; i = i+1) begin
+  for(i = 0; i<64'h26c310; i = i+1) begin
   @(negedge CCLK);
   end
   
   
-  //reset
-  BTN0 = 1'b1;
-  @(negedge CCLK);
-  @(negedge CCLK);
-  BTN0 = 1'b0;
-  for(i = 0; i<64'h20; i = i+1) begin
-  @(negedge CCLK);
-  end
+  ////reset
+  // BTN0 = 1'b1;
+  // @(negedge CCLK);
+  // @(negedge CCLK);
+  // BTN0 = 1'b0;
+  // for(i = 0; i<64'h20; i = i+1) begin
+  // @(negedge CCLK);
+  // end
   
-  //hit the get_rdid button
+  //////hit the get_rdid button
   BTN1 = 1'b1;
   for(i = 0; i<64'h20; i = i+1) begin
   @(negedge CCLK);

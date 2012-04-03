@@ -62,20 +62,20 @@ vcommand
 VZfXC42gYaoYJ8P<I465jS2
 r1
 31
-IhOXIT=R3<_;mgUBf`PKXN3
+I?;HKeoTkHV7a]5IL21ZWV2
 R1
-Z7 w1333327416
+w1333337590
 8Z:/ECE 4211/HW7/command.v
 FZ:/ECE 4211/HW7/command.v
 L0 1
 R3
 R4
 R5
-!s85 0
 !s90 -reportprogress|300|-work|work|-vopt|-nocovercells|Z:/ECE 4211/HW7/command.v|
-!s100 VX_T;mfje6V^Q^O:no3kL1
-!s108 1333327419.530000
+!s100 ;]0On`lFFk3>dI96?O@mE0
+!s108 1333337634.136000
 !s107 Z:/ECE 4211/HW7/command.v|
+!s85 0
 vcommand_if
 VjcUi;5o^3[S>?a2n^?nbz3
 r1
@@ -282,21 +282,21 @@ R5
 vphysical
 VGgeKb_fn=BQMAk@=:[deC1
 r1
-!s85 0
 31
-I4`nnhJkK;NZI5N<miN1I_0
+IeW1B=[QZ0TiOQ=ERNYP5`3
 R1
-R7
+w1333331172
 8Z:/ECE 4211/HW7/physical.v
 FZ:/ECE 4211/HW7/physical.v
 L0 1
 R3
 R4
 R5
+!s100 0Hmeg3>P6A_OB>TjHQGD;3
 !s90 -reportprogress|300|-work|work|-vopt|-nocovercells|Z:/ECE 4211/HW7/physical.v|
-!s100 WgZcn19QNLmjBTQf<fd8U1
-!s108 1333327419.811000
+!s108 1333331182.470000
 !s107 Z:/ECE 4211/HW7/physical.v|
+!s85 0
 vspi_master_flash
 VPoLhWR<L9[LT;=4<GM03i3
 r1
@@ -318,36 +318,36 @@ R5
 vtestbench
 VhGfW:390DM[oDMzegDH9`2
 r1
+!s85 0
 31
-IUWdkk>UgCQahB]n5cO?5`2
+IW8TZ@a7mXXY_ja`z4CV`_0
 R1
-w1333325015
+w1333338264
 8Z:/ECE 4211/HW7/testbench.v
 FZ:/ECE 4211/HW7/testbench.v
 L0 2
 R3
+!s90 -reportprogress|300|-work|work|-vopt|-nocovercells|Z:/ECE 4211/HW7/testbench.v|
 R4
 R5
-!s90 -reportprogress|300|-work|work|-vopt|-nocovercells|Z:/ECE 4211/HW7/testbench.v|
-!s100 _`Sf@[j0A7mM8Bf?RLngY0
-!s108 1333325016.976000
+!s100 AAJK:bUVceAVn8MQOSHYX2
+!s108 1333338270.996000
 !s107 Z:/ECE 4211/HW7/testbench.v|
-!s85 0
 vtransaction
-VXh2N@H7AHhDR[hC7]<_Io0
+V_9]=0>boeE?GD`7Q;gCZh2
 r1
 31
-I1GXP@V^O829Zl1eXPdAbl2
+Ia5ZRgjJ6_R`P><E15VFPD2
 R1
-w1332201968
+w1333337345
 8Z:/ECE 4211/HW7/transaction.v
 FZ:/ECE 4211/HW7/transaction.v
 L0 1
 R3
 R4
 R5
-!s100 5G>Z?Eg22PLmLSXZ:UZAA0
 !s90 -reportprogress|300|-work|work|-vopt|-nocovercells|Z:/ECE 4211/HW7/transaction.v|
-!s108 1333324945.092000
+!s100 fA3?be_GFEVZIen6@baKW3
+!s108 1333337347.228000
 !s107 Z:/ECE 4211/HW7/transaction.v|
 !s85 0

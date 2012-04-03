@@ -24,9 +24,34 @@ add wave -noupdate /testbench/CMD/current_state
 add wave -noupdate /testbench/CMD/next_state
 add wave -noupdate /testbench/CMD/man_ID_out
 add wave -noupdate /testbench/CMD/mem_TP_out
+add wave -noupdate -divider Transaction
 add wave -noupdate /testbench/CMD/mem_CP_out
+add wave -noupdate /testbench/CMD/TXN/reset_done
+add wave -noupdate /testbench/CMD/TXN/init_done
+add wave -noupdate /testbench/CMD/TXN/send_data_done
+add wave -noupdate /testbench/CMD/TXN/do_send_data
+add wave -noupdate /testbench/CMD/TXN/data_to_send
+add wave -noupdate /testbench/CMD/TXN/lcdrs_in
+add wave -noupdate /testbench/CMD/TXN/current_state
+add wave -noupdate /testbench/CMD/TXN/next_state
+add wave -noupdate -divider Physical
+add wave -noupdate /testbench/CMD/TXN/PHYSICAL/reset
+add wave -noupdate /testbench/CMD/TXN/PHYSICAL/do_init
+add wave -noupdate /testbench/CMD/TXN/PHYSICAL/do_send_data
+add wave -noupdate /testbench/CMD/TXN/PHYSICAL/data_to_send
+add wave -noupdate /testbench/CMD/TXN/PHYSICAL/lcdrs_in
+add wave -noupdate /testbench/CMD/TXN/PHYSICAL/init_done
+add wave -noupdate /testbench/CMD/TXN/PHYSICAL/lcde
+add wave -noupdate /testbench/CMD/TXN/PHYSICAL/lcdrs
+add wave -noupdate /testbench/CMD/TXN/PHYSICAL/lcdrw
+add wave -noupdate /testbench/CMD/TXN/PHYSICAL/lcddat
+add wave -noupdate /testbench/CMD/TXN/PHYSICAL/send_data_done
+add wave -noupdate /testbench/CMD/TXN/PHYSICAL/current_state
+add wave -noupdate /testbench/CMD/TXN/PHYSICAL/next_state
+add wave -noupdate /testbench/CMD/TXN/PHYSICAL/counter
+add wave -noupdate /testbench/CMD/TXN/PHYSICAL/count_up_to_value
 TreeUpdate [SetDefaultTree]
-WaveRestoreCursors {{Cursor 1} {59987272 ns} 0}
+WaveRestoreCursors {{Cursor 1} {40433801 ns} 0}
 configure wave -namecolwidth 150
 configure wave -valuecolwidth 100
 configure wave -justifyvalue left
@@ -41,4 +66,5 @@ configure wave -griddelta 40
 configure wave -timeline 0
 configure wave -timelineunits ns
 update
-WaveRestoreZoom {5150 us} {68150 us}
+WaveRestoreZoom {0 ns} {63 ms}
+bookmark add wave bookmark0 {{33869517 ns} {33873363 ns}} 13

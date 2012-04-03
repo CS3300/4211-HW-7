@@ -19,19 +19,30 @@
 Pin D of ila/U0/I_TQ0.G_TW[21].U_TQ</arg>
 </msg>
 
+<msg type="warning" file="Pack" num="249" delta="old" >The following adjacent carry multiplexers occupy different slice components.  The resulting carry chain will have suboptimal timing.
+	<arg fmt="%s" index="1">TXN/PHYSICAL/Mcompar_counter_cmp_ne0000_cy&lt;8&gt;</arg>
+	<arg fmt="%s" index="2">TXN/PHYSICAL/Mcount_counter_cy&lt;0&gt;</arg>
+</msg>
+
+<msg type="warning" file="Pack" num="266" delta="new" >The function generator <arg fmt="%s" index="1">XST_GND</arg> failed to merge with F5 multiplexer <arg fmt="%s" index="2">data_to_write_cmp_eq00141_f5</arg>.  <arg fmt="%z" index="3">There is a conflict for the FXMUX.</arg>  The design will exhibit suboptimal timing.
+</msg>
+
 <msg type="warning" file="Pack" num="266" delta="old" >The function generator <arg fmt="%s" index="1">XST_GND</arg> failed to merge with F5 multiplexer <arg fmt="%s" index="2">data_to_write_mux0000&lt;126&gt;11_f5</arg>.  <arg fmt="%z" index="3">There is a conflict for the FXMUX.</arg>  The design will exhibit suboptimal timing.
 </msg>
 
 <msg type="warning" file="Pack" num="266" delta="old" >The function generator <arg fmt="%s" index="1">XST_GND</arg> failed to merge with F5 multiplexer <arg fmt="%s" index="2">SPI_FLASH/spimosi_mux000034_f5</arg>.  <arg fmt="%z" index="3">There is more than one F5MUX.</arg>  The design will exhibit suboptimal timing.
 </msg>
 
-<msg type="warning" file="Pack" num="266" delta="old" >The function generator <arg fmt="%s" index="1">XST_GND</arg> failed to merge with F5 multiplexer <arg fmt="%s" index="2">display_counter_mux0000&lt;2&gt;_SW0_f5</arg>.  <arg fmt="%z" index="3">There is more than one F5MUX.</arg>  The design will exhibit suboptimal timing.
-</msg>
-
 <msg type="warning" file="PhysDesignRules" num="372" delta="old" >Gated clock. Clock net <arg fmt="%s" index="1">TXN/PHYSICAL/clk_inv</arg> is sourced by a combinatorial pin. This is not good design practice. Use the CE pin to control the loading of data into the flip-flop.
 </msg>
 
 <msg type="warning" file="PhysDesignRules" num="372" delta="old" >Gated clock. Clock net <arg fmt="%s" index="1">CONTROL&lt;13&gt;</arg> is sourced by a combinatorial pin. This is not good design practice. Use the CE pin to control the loading of data into the flip-flop.
+</msg>
+
+<msg type="warning" file="PhysDesignRules" num="372" delta="new" >Gated clock. Clock net <arg fmt="%s" index="1">TXN/data_to_send_not0001</arg> is sourced by a combinatorial pin. This is not good design practice. Use the CE pin to control the loading of data into the flip-flop.
+</msg>
+
+<msg type="warning" file="PhysDesignRules" num="372" delta="new" >Gated clock. Clock net <arg fmt="%s" index="1">TXN/return_cursor_home_done_not0001</arg> is sourced by a combinatorial pin. This is not good design practice. Use the CE pin to control the loading of data into the flip-flop.
 </msg>
 
 <msg type="warning" file="PhysDesignRules" num="774" delta="old" >Unexpected DCM configuration. CLKOUT_PHASE_SHIFT is not configured VARIABLE for comp <arg fmt="%s" index="1">CLK_DIV/DCM_SP_INST</arg>. The PSEN pin is connected to an active signal. The PSEN pin should be connected to GND to guarantee the expected operation.

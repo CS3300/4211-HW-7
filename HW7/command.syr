@@ -3,14 +3,14 @@ Copyright (c) 1995-2011 Xilinx, Inc.  All rights reserved.
 --> Parameter TMPDIR set to xst/projnav.tmp
 
 
-Total REAL time to Xst completion: 1.00 secs
+Total REAL time to Xst completion: 0.00 secs
 Total CPU time to Xst completion: 0.14 secs
  
 --> Parameter xsthdpdir set to xst
 
 
-Total REAL time to Xst completion: 1.00 secs
-Total CPU time to Xst completion: 0.16 secs
+Total REAL time to Xst completion: 0.00 secs
+Total CPU time to Xst completion: 0.14 secs
  
 --> Reading design: command.prj
 
@@ -135,10 +135,11 @@ Analysis of file <"command.prj"> succeeded.
 *                     Design Hierarchy Analysis                         *
 =========================================================================
 Analyzing hierarchy for module <command> in library <work> with parameters.
-	IDLE = "00"
-	SEND_BYTE = "10"
-	WAIT_DONE = "11"
-	WAIT_GET_RDID_DONE = "01"
+	IDLE = "000"
+	RETURN_CURSOR_HOME = "100"
+	SEND_BYTE = "010"
+	WAIT_DONE = "011"
+	WAIT_GET_RDID_DONE = "001"
 
 Analyzing hierarchy for module <clock_divider> in library <work>.
 
@@ -164,22 +165,23 @@ Analyzing hierarchy for module <debounce_sync> in library <work>.
 Analyzing hierarchy for module <oneshot> in library <work>.
 
 Analyzing hierarchy for module <physical> in library <work> with parameters.
-	ASSERT_LCDE_1 = "0001"
-	ASSERT_LCDE_2 = "0011"
-	ASSERT_LCDE_3 = "0101"
-	ASSERT_LCDE_4 = "0111"
-	ASSERT_LCDE_NIBBLE1 = "1010"
-	ASSERT_LCDE_NIBBLE2 = "1101"
-	BETWEEN_NIBBLES = "1011"
-	IDLE = "0000"
-	SEND_NIBBLE1 = "1001"
-	SEND_NIBBLE2 = "1100"
-	WAIT_100US = "0100"
-	WAIT_40US_0 = "1111"
-	WAIT_40US_1 = "0110"
-	WAIT_40US_2 = "1000"
-	WAIT_40US_AFTER_CMD = "1110"
-	WAIT_4_1MS = "0010"
+	ASSERT_LCDE_1 = "00001"
+	ASSERT_LCDE_2 = "00011"
+	ASSERT_LCDE_3 = "00101"
+	ASSERT_LCDE_4 = "00111"
+	ASSERT_LCDE_NIBBLE1 = "01010"
+	ASSERT_LCDE_NIBBLE2 = "01101"
+	BETWEEN_NIBBLES = "01011"
+	IDLE = "00000"
+	SEND_NIBBLE1 = "01001"
+	SEND_NIBBLE2 = "01100"
+	SET_LCDDAT_2 = "10000"
+	WAIT_100US = "00100"
+	WAIT_40US_1 = "00110"
+	WAIT_40US_2 = "01000"
+	WAIT_40US_AFTER_CMD = "01110"
+	WAIT_40uS_0 = "01111"
+	WAIT_4_1MS = "00010"
 
 Analyzing hierarchy for module <d_ff> in library <work>.
 
@@ -188,10 +190,11 @@ Analyzing hierarchy for module <d_ff> in library <work>.
 *                            HDL Analysis                               *
 =========================================================================
 Analyzing top module <command>.
-	IDLE = 2'b00
-	SEND_BYTE = 2'b10
-	WAIT_DONE = 2'b11
-	WAIT_GET_RDID_DONE = 2'b01
+	IDLE = 3'b000
+	RETURN_CURSOR_HOME = 3'b100
+	SEND_BYTE = 3'b010
+	WAIT_DONE = 3'b011
+	WAIT_GET_RDID_DONE = 3'b001
 	Calling function <hex_to_ASCII>.
 	Calling function <convert>.
 	Calling function <convert>.
@@ -201,8 +204,8 @@ Analyzing top module <command>.
 	Calling function <hex_to_ASCII>.
 	Calling function <convert>.
 	Calling function <convert>.
-WARNING:Xst:2211 - "ipcore_dir/icon.v" line 46: Instantiating black box module <icon>.
-WARNING:Xst:2211 - "ipcore_dir/ila.v" line 50: Instantiating black box module <ila>.
+WARNING:Xst:2211 - "ipcore_dir/icon.v" line 49: Instantiating black box module <icon>.
+WARNING:Xst:2211 - "ipcore_dir/ila.v" line 53: Instantiating black box module <ila>.
 Module <command> is correct for synthesis.
  
 Analyzing module <clock_divider> in library <work>.
@@ -238,22 +241,23 @@ Analyzing module <transaction> in library <work>.
 Module <transaction> is correct for synthesis.
  
 Analyzing module <physical> in library <work>.
-	ASSERT_LCDE_1 = 4'b0001
-	ASSERT_LCDE_2 = 4'b0011
-	ASSERT_LCDE_3 = 4'b0101
-	ASSERT_LCDE_4 = 4'b0111
-	ASSERT_LCDE_NIBBLE1 = 4'b1010
-	ASSERT_LCDE_NIBBLE2 = 4'b1101
-	BETWEEN_NIBBLES = 4'b1011
-	IDLE = 4'b0000
-	SEND_NIBBLE1 = 4'b1001
-	SEND_NIBBLE2 = 4'b1100
-	WAIT_100US = 4'b0100
-	WAIT_40US_0 = 4'b1111
-	WAIT_40US_1 = 4'b0110
-	WAIT_40US_2 = 4'b1000
-	WAIT_40US_AFTER_CMD = 4'b1110
-	WAIT_4_1MS = 4'b0010
+	ASSERT_LCDE_1 = 5'b00001
+	ASSERT_LCDE_2 = 5'b00011
+	ASSERT_LCDE_3 = 5'b00101
+	ASSERT_LCDE_4 = 5'b00111
+	ASSERT_LCDE_NIBBLE1 = 5'b01010
+	ASSERT_LCDE_NIBBLE2 = 5'b01101
+	BETWEEN_NIBBLES = 5'b01011
+	IDLE = 5'b00000
+	SEND_NIBBLE1 = 5'b01001
+	SEND_NIBBLE2 = 5'b01100
+	SET_LCDDAT_2 = 5'b10000
+	WAIT_100US = 5'b00100
+	WAIT_40US_1 = 5'b00110
+	WAIT_40US_2 = 5'b01000
+	WAIT_40US_AFTER_CMD = 5'b01110
+	WAIT_40uS_0 = 5'b01111
+	WAIT_4_1MS = 5'b00010
 Module <physical> is correct for synthesis.
  
 Analyzing module <spi_master_flash> in library <work>.
@@ -330,7 +334,6 @@ INFO:Xst:2679 - Register <string_to_display<24>> in unit <command> has a constan
 INFO:Xst:2679 - Register <string_to_display<23>> in unit <command> has a constant value of 0 during circuit operation. The register is replaced by logic.
 INFO:Xst:2679 - Register <string_to_display<22>> in unit <command> has a constant value of 0 during circuit operation. The register is replaced by logic.
 INFO:Xst:2679 - Register <string_to_display<17>> in unit <command> has a constant value of 0 during circuit operation. The register is replaced by logic.
-INFO:Xst:2679 - Register <lcdrw> in unit <physical> has a constant value of 0 during circuit operation. The register is replaced by logic.
 
 Synthesizing Unit <spi_master_flash>.
     Related source file is "spi_master_flash.v".
@@ -369,25 +372,33 @@ Unit <spi_master_flash> synthesized.
 
 Synthesizing Unit <physical>.
     Related source file is "physical.v".
-INFO:Xst:2117 - HDL ADVISOR - Mux Selector <current_state> of Case statement line 60 was re-encoded using one-hot encoding. The case statement will be optimized (default statement optimization), but this optimization may lead to design initialization problems. To ensure the design works safely, you can:
+    Using one-hot encoding for signal <current_state>.
+INFO:Xst:2117 - HDL ADVISOR - Mux Selector <current_state> of Case statement line 67 was re-encoded using one-hot encoding. The case statement will be optimized (default statement optimization), but this optimization may lead to design initialization problems. To ensure the design works safely, you can:
    	- add an 'INIT' attribute on signal <current_state> (optimization is then done without any risk)
    	- use the attribute 'signal_encoding user' to avoid onehot optimization
    	- use the attribute 'safe_implementation yes' to force XST to perform a safe (but less efficient) optimization
-    Using one-hot encoding for signal <current_state>.
+INFO:Xst:2117 - HDL ADVISOR - Mux Selector <current_state> of Case statement line 67 was re-encoded using one-hot encoding. The case statement will be optimized (default statement optimization), but this optimization may lead to design initialization problems. To ensure the design works safely, you can:
+   	- add an 'INIT' attribute on signal <current_state> (optimization is then done without any risk)
+   	- use the attribute 'signal_encoding user' to avoid onehot optimization
+   	- use the attribute 'safe_implementation yes' to force XST to perform a safe (but less efficient) optimization
+INFO:Xst:2117 - HDL ADVISOR - Mux Selector <current_state> of Case statement line 67 was re-encoded using one-hot encoding. The case statement will be optimized (default statement optimization), but this optimization may lead to design initialization problems. To ensure the design works safely, you can:
+   	- add an 'INIT' attribute on signal <current_state> (optimization is then done without any risk)
+   	- use the attribute 'signal_encoding user' to avoid onehot optimization
+   	- use the attribute 'safe_implementation yes' to force XST to perform a safe (but less efficient) optimization
     Found 1-bit register for signal <lcde>.
     Found 4-bit register for signal <lcddat>.
     Found 1-bit register for signal <init_done>.
     Found 1-bit register for signal <send_data_done>.
-    Found 16-bit register for signal <count_up_to_value>.
-    Found 16-bit up counter for signal <counter>.
-    Found 16-bit comparator not equal for signal <counter$cmp_ne0000> created at line 49.
-    Found 16-bit register for signal <current_state>.
-    Found 16-bit comparator not equal for signal <init_done$cmp_ne0000> created at line 145.
-    Found 16-bit register for signal <next_state>.
-    Found 16-bit comparator equal for signal <send_data_done$cmp_eq0000> created at line 196.
+    Found 20-bit register for signal <count_up_to_value>.
+    Found 20-bit up counter for signal <counter>.
+    Found 17-bit comparator not equal for signal <counter$cmp_ne0000> created at line 51.
+    Found 17-bit register for signal <current_state>.
+    Found 20-bit comparator not equal for signal <init_done$cmp_ne0000> created at line 159.
+    Found 17-bit register for signal <next_state>.
+    Found 20-bit comparator equal for signal <send_data_done$cmp_eq0000> created at line 210.
     Summary:
 	inferred   1 Counter(s).
-	inferred  39 D-type flip-flop(s).
+	inferred   7 D-type flip-flop(s).
 	inferred   3 Comparator(s).
 Unit <physical> synthesized.
 
@@ -407,23 +418,27 @@ Unit <clock_divider> synthesized.
 
 Synthesizing Unit <transaction>.
     Related source file is "transaction.v".
-INFO:Xst:2117 - HDL ADVISOR - Mux Selector <current_state> of Case statement line 47 was re-encoded using one-hot encoding. The case statement will be optimized (default statement optimization), but this optimization may lead to design initialization problems. To ensure the design works safely, you can:
+INFO:Xst:2117 - HDL ADVISOR - Mux Selector <current_state> of Case statement line 49 was re-encoded using one-hot encoding. The case statement will be optimized (default statement optimization), but this optimization may lead to design initialization problems. To ensure the design works safely, you can:
    	- add an 'INIT' attribute on signal <current_state> (optimization is then done without any risk)
    	- use the attribute 'signal_encoding user' to avoid onehot optimization
    	- use the attribute 'safe_implementation yes' to force XST to perform a safe (but less efficient) optimization
     Using one-hot encoding for signal <current_state>.
-INFO:Xst:2117 - HDL ADVISOR - Mux Selector <current_state> of Case statement line 47 was re-encoded using one-hot encoding. The case statement will be optimized (default statement optimization), but this optimization may lead to design initialization problems. To ensure the design works safely, you can:
+INFO:Xst:2117 - HDL ADVISOR - Mux Selector <current_state> of Case statement line 49 was re-encoded using one-hot encoding. The case statement will be optimized (default statement optimization), but this optimization may lead to design initialization problems. To ensure the design works safely, you can:
    	- add an 'INIT' attribute on signal <current_state> (optimization is then done without any risk)
    	- use the attribute 'signal_encoding user' to avoid onehot optimization
    	- use the attribute 'safe_implementation yes' to force XST to perform a safe (but less efficient) optimization
-INFO:Xst:2117 - HDL ADVISOR - Mux Selector <current_state> of Case statement line 47 was re-encoded using one-hot encoding. The case statement will be optimized (default statement optimization), but this optimization may lead to design initialization problems. To ensure the design works safely, you can:
+INFO:Xst:2117 - HDL ADVISOR - Mux Selector <current_state> of Case statement line 49 was re-encoded using one-hot encoding. The case statement will be optimized (default statement optimization), but this optimization may lead to design initialization problems. To ensure the design works safely, you can:
    	- add an 'INIT' attribute on signal <current_state> (optimization is then done without any risk)
    	- use the attribute 'signal_encoding user' to avoid onehot optimization
    	- use the attribute 'safe_implementation yes' to force XST to perform a safe (but less efficient) optimization
-INFO:Xst:2117 - HDL ADVISOR - Mux Selector <current_state> of Case statement line 47 was re-encoded using one-hot encoding. The case statement will be optimized (default statement optimization), but this optimization may lead to design initialization problems. To ensure the design works safely, you can:
+INFO:Xst:2117 - HDL ADVISOR - Mux Selector <current_state> of Case statement line 49 was re-encoded using one-hot encoding. The case statement will be optimized (default statement optimization), but this optimization may lead to design initialization problems. To ensure the design works safely, you can:
    	- add an 'INIT' attribute on signal <current_state> (optimization is then done without any risk)
    	- use the attribute 'signal_encoding user' to avoid onehot optimization
    	- use the attribute 'safe_implementation yes' to force XST to perform a safe (but less efficient) optimization
+WARNING:Xst:737 - Found 8-bit latch for signal <data_to_send>. Latches may be generated from incomplete case or if statements. We do not recommend the use of latches in FPGA/CPLD designs, as they may lead to timing problems.
+INFO:Xst:2371 - HDL ADVISOR - Logic functions respectively driving the data and gate enable inputs of this latch share common terms. This situation will potentially lead to setup/hold violations and, as a result, to simulation problems. This situation may come from an incomplete case statement (all selector values are not covered). You should carefully review if it was in your intentions to describe such a latch.
+WARNING:Xst:737 - Found 1-bit latch for signal <return_cursor_home_done>. Latches may be generated from incomplete case or if statements. We do not recommend the use of latches in FPGA/CPLD designs, as they may lead to timing problems.
+INFO:Xst:2371 - HDL ADVISOR - Logic functions respectively driving the data and gate enable inputs of this latch share common terms. This situation will potentially lead to setup/hold violations and, as a result, to simulation problems. This situation may come from an incomplete case statement (all selector values are not covered). You should carefully review if it was in your intentions to describe such a latch.
     Found 1-bit register for signal <reset_done>.
     Found 7-bit register for signal <current_state>.
     Summary:
@@ -474,29 +489,30 @@ WARNING:Xst:646 - Signal <hold> is assigned but never used. This unconnected sig
     Register <string_to_display<75>> equivalent to <string_to_display<104>> has been removed
     Register <string_to_display<78>> equivalent to <string_to_display<104>> has been removed
     Register <string_to_display<85>> equivalent to <string_to_display<104>> has been removed
-INFO:Xst:2117 - HDL ADVISOR - Mux Selector <current_state> of Case statement line 83 was re-encoded using one-hot encoding. The case statement will be optimized (default statement optimization), but this optimization may lead to design initialization problems. To ensure the design works safely, you can:
+    Using one-hot encoding for signal <current_state>.
+INFO:Xst:2117 - HDL ADVISOR - Mux Selector <current_state> of Case statement line 89 was re-encoded using one-hot encoding. The case statement will be optimized (default statement optimization), but this optimization may lead to design initialization problems. To ensure the design works safely, you can:
    	- add an 'INIT' attribute on signal <current_state> (optimization is then done without any risk)
    	- use the attribute 'signal_encoding user' to avoid onehot optimization
    	- use the attribute 'safe_implementation yes' to force XST to perform a safe (but less efficient) optimization
-    Using one-hot encoding for signal <current_state>.
-    Found 4-bit register for signal <current_state>.
+    Found 5-bit register for signal <current_state>.
     Found 8-bit register for signal <data_to_write>.
     Found 5-bit register for signal <display_counter>.
-    Found 5-bit subtractor for signal <display_counter$addsub0000> created at line 129.
+    Found 5-bit subtractor for signal <display_counter$addsub0000> created at line 135.
     Found 1-bit register for signal <do_init>.
+    Found 1-bit register for signal <do_return_cursor_home>.
     Found 1-bit register for signal <do_write_data>.
-    Found 4-bit comparator greater for signal <man_ID_out$cmp_gt0000> created at line 267.
-    Found 4-bit comparator greater for signal <man_ID_out$cmp_gt0001> created at line 267.
-    Found 4-bit comparator greater for signal <mem_CP_out$cmp_gt0000> created at line 267.
-    Found 4-bit comparator greater for signal <mem_CP_out$cmp_gt0001> created at line 267.
-    Found 4-bit comparator greater for signal <mem_TP_out$cmp_gt0000> created at line 267.
-    Found 4-bit comparator greater for signal <mem_TP_out$cmp_gt0001> created at line 267.
-    Found 4-bit register for signal <next_state>.
+    Found 4-bit comparator greater for signal <man_ID_out$cmp_gt0000> created at line 285.
+    Found 4-bit comparator greater for signal <man_ID_out$cmp_gt0001> created at line 285.
+    Found 4-bit comparator greater for signal <mem_CP_out$cmp_gt0000> created at line 285.
+    Found 4-bit comparator greater for signal <mem_CP_out$cmp_gt0001> created at line 285.
+    Found 4-bit comparator greater for signal <mem_TP_out$cmp_gt0000> created at line 285.
+    Found 4-bit comparator greater for signal <mem_TP_out$cmp_gt0001> created at line 285.
+    Found 5-bit register for signal <next_state>.
     Found 17-bit register for signal <string_to_display<104:88>>.
     Found 16-bit register for signal <string_to_display<63:48>>.
     Found 16-bit register for signal <string_to_display<15:0>>.
     Summary:
-	inferred  68 D-type flip-flop(s).
+	inferred  65 D-type flip-flop(s).
 	inferred   1 Adder/Subtractor(s).
 	inferred   6 Comparator(s).
 Unit <command> synthesized.
@@ -513,17 +529,22 @@ Macro Statistics
  5-bit subtractor                                      : 1
  7-bit adder                                           : 1
 # Counters                                             : 1
- 16-bit up counter                                     : 1
-# Registers                                            : 99
- 1-bit register                                        : 87
- 16-bit register                                       : 3
- 4-bit register                                        : 3
- 5-bit register                                        : 3
+ 20-bit up counter                                     : 1
+# Registers                                            : 100
+ 1-bit register                                        : 88
+ 17-bit register                                       : 2
+ 20-bit register                                       : 1
+ 4-bit register                                        : 1
+ 5-bit register                                        : 5
  7-bit register                                        : 2
  8-bit register                                        : 1
+# Latches                                              : 2
+ 1-bit latch                                           : 1
+ 8-bit latch                                           : 1
 # Comparators                                          : 16
- 16-bit comparator equal                               : 1
- 16-bit comparator not equal                           : 2
+ 17-bit comparator not equal                           : 1
+ 20-bit comparator equal                               : 1
+ 20-bit comparator not equal                           : 1
  4-bit comparator greater                              : 6
  7-bit comparator greatequal                           : 3
  7-bit comparator less                                 : 4
@@ -538,7 +559,8 @@ Reading core <ipcore_dir/icon.ngc>.
 Reading core <ipcore_dir/ila.ngc>.
 Loading core <icon> for timing and area information for instance <icon>.
 Loading core <ila> for timing and area information for instance <ila>.
-WARNING:Xst:1710 - FF/Latch <string_to_display_103> (without init value) has a constant value of 0 in block <command>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <0> (without init value) has a constant value of 0 in block <7>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <string_to_display_103> (without init value) has a constant value of 0 in block <command>. This FF/Latch will be trimmed during the optimization process.
 WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <string_to_display_95> (without init value) has a constant value of 0 in block <command>. This FF/Latch will be trimmed during the optimization process.
 WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <string_to_display_63> (without init value) has a constant value of 0 in block <command>. This FF/Latch will be trimmed during the optimization process.
 WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <string_to_display_55> (without init value) has a constant value of 0 in block <command>. This FF/Latch will be trimmed during the optimization process.
@@ -556,12 +578,16 @@ Macro Statistics
  5-bit subtractor                                      : 1
  7-bit adder                                           : 1
 # Counters                                             : 1
- 16-bit up counter                                     : 1
-# Registers                                            : 184
- Flip-Flops                                            : 184
+ 20-bit up counter                                     : 1
+# Registers                                            : 193
+ Flip-Flops                                            : 193
+# Latches                                              : 2
+ 1-bit latch                                           : 1
+ 8-bit latch                                           : 1
 # Comparators                                          : 16
- 16-bit comparator equal                               : 1
- 16-bit comparator not equal                           : 2
+ 17-bit comparator not equal                           : 1
+ 20-bit comparator equal                               : 1
+ 20-bit comparator not equal                           : 1
  4-bit comparator greater                              : 6
  7-bit comparator greatequal                           : 3
  7-bit comparator less                                 : 4
@@ -581,9 +607,14 @@ WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <data_to_write_7> (w
 INFO:Xst:2261 - The FF/Latch <string_to_display_61> in Unit <command> is equivalent to the following FF/Latch, which will be removed : <string_to_display_60> 
 INFO:Xst:2261 - The FF/Latch <string_to_display_13> in Unit <command> is equivalent to the following FF/Latch, which will be removed : <string_to_display_12> 
 INFO:Xst:2261 - The FF/Latch <string_to_display_101> in Unit <command> is equivalent to the following FF/Latch, which will be removed : <string_to_display_100> 
-INFO:Xst:2261 - The FF/Latch <string_to_display_52> in Unit <command> is equivalent to the following FF/Latch, which will be removed : <string_to_display_53> 
-INFO:Xst:2261 - The FF/Latch <string_to_display_5> in Unit <command> is equivalent to the following FF/Latch, which will be removed : <string_to_display_4> 
+INFO:Xst:2261 - The FF/Latch <string_to_display_53> in Unit <command> is equivalent to the following FF/Latch, which will be removed : <string_to_display_52> 
+INFO:Xst:2261 - The FF/Latch <string_to_display_4> in Unit <command> is equivalent to the following FF/Latch, which will be removed : <string_to_display_5> 
 INFO:Xst:2261 - The FF/Latch <string_to_display_93> in Unit <command> is equivalent to the following FF/Latch, which will be removed : <string_to_display_92> 
+WARNING:Xst:1710 - FF/Latch <count_up_to_value_19> (without init value) has a constant value of 0 in block <physical>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <count_up_to_value_18> (without init value) has a constant value of 0 in block <physical>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <count_up_to_value_16> (without init value) has a constant value of 0 in block <physical>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <count_up_to_value_17> (without init value) has a constant value of 0 in block <physical>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <data_to_send_7> (without init value) has a constant value of 0 in block <transaction>. This FF/Latch will be trimmed during the optimization process.
 
 Optimizing unit <command> ...
 
@@ -606,8 +637,8 @@ Final Macro Processing ...
 Final Register Report
 
 Macro Statistics
-# Registers                                            : 190
- Flip-Flops                                            : 190
+# Registers                                            : 199
+ Flip-Flops                                            : 199
 
 =========================================================================
 
@@ -636,29 +667,29 @@ Design Statistics
 # IOs                              : 19
 
 Cell Usage :
-# BELS                             : 774
+# BELS                             : 809
 #      GND                         : 3
 #      INV                         : 10
 #      LUT1                        : 61
-#      LUT2                        : 50
+#      LUT2                        : 55
 #      LUT2_L                      : 1
-#      LUT3                        : 111
-#      LUT4                        : 290
+#      LUT3                        : 117
+#      LUT4                        : 298
 #      LUT4_L                      : 1
-#      MUXCY                       : 40
+#      MUXCY                       : 47
 #      MUXCY_L                     : 72
-#      MUXF5                       : 45
+#      MUXF5                       : 50
 #      MUXF6                       : 10
 #      VCC                         : 3
-#      XORCY                       : 77
-# FlipFlops/Latches                : 470
+#      XORCY                       : 81
+# FlipFlops/Latches                : 487
 #      FD                          : 27
-#      FDC                         : 39
-#      FDC_1                       : 25
-#      FDCE                        : 64
-#      FDCE_1                      : 4
-#      FDE                         : 103
-#      FDP                         : 25
+#      FDC                         : 70
+#      FDC_1                       : 28
+#      FDCE                        : 65
+#      FDCE_1                      : 3
+#      FDE                         : 60
+#      FDP                         : 43
 #      FDP_1                       : 3
 #      FDPE                        : 27
 #      FDPE_1                      : 1
@@ -666,6 +697,7 @@ Cell Usage :
 #      FDRE                        : 79
 #      FDRS                        : 4
 #      FDS                         : 18
+#      LD                          : 8
 #      LDC                         : 1
 # RAMS                             : 13
 #      RAMB16_S1_S2                : 13
@@ -691,10 +723,10 @@ Device utilization summary:
 
 Selected Device : 3s500efg320-4 
 
- Number of Slices:                      421  out of   4656     9%  
- Number of Slice Flip Flops:            461  out of   9312     4%  
- Number of 4 input LUTs:                605  out of   9312     6%  
-    Number used as logic:               524
+ Number of Slices:                      431  out of   4656     9%  
+ Number of Slice Flip Flops:            478  out of   9312     5%  
+ Number of 4 input LUTs:                624  out of   9312     6%  
+    Number used as logic:               543
     Number used as Shift registers:      81
  Number of IOs:                          19
  Number of bonded IOBs:                  19  out of    232     8%  
@@ -721,17 +753,19 @@ NOTE: THESE TIMING NUMBERS ARE ONLY A SYNTHESIS ESTIMATE.
 
 Clock Information:
 ------------------
-----------------------------------------------------------------------+------------------------------------------------+-------+
-Clock Signal                                                          | Clock buffer(FF name)                          | Load  |
-----------------------------------------------------------------------+------------------------------------------------+-------+
-icon/U0/U_ICON/I_YES_BSCAN.U_BS/DRCK1                                 | BUFG                                           | 154   |
-icon/U0/iUPDATE_OUT                                                   | NONE(icon/U0/U_ICON/U_iDATA_CMD)               | 1     |
-CCLK                                                                  | CLK_DIV/DCM_SP_INST:CLK0                       | 231   |
-icon/CONTROL0<13>(icon/U0/U_ICON/U_CTRL_OUT/F_NCP[0].F_CMD[9].U_LCE:O)| NONE(*)(ila/U0/I_NO_D.U_ILA/U_STAT/U_DIRTY_LDC)| 1     |
-CCLK                                                                  | CLK_DIV/DCM_SP_INST:CLKDV                      | 183   |
-SPI_FLASH/spiclk                                                      | NONE(SPI_FLASH/counter_6)                      | 7     |
-----------------------------------------------------------------------+------------------------------------------------+-------+
-(*) This 1 clock signal(s) are generated by combinatorial logic,
+--------------------------------------------------------------------------+------------------------------------------------+-------+
+Clock Signal                                                              | Clock buffer(FF name)                          | Load  |
+--------------------------------------------------------------------------+------------------------------------------------+-------+
+icon/U0/U_ICON/I_YES_BSCAN.U_BS/DRCK1                                     | BUFG                                           | 154   |
+icon/U0/iUPDATE_OUT                                                       | NONE(icon/U0/U_ICON/U_iDATA_CMD)               | 1     |
+CCLK                                                                      | CLK_DIV/DCM_SP_INST:CLK0                       | 231   |
+icon/CONTROL0<13>(icon/U0/U_ICON/U_CTRL_OUT/F_NCP[0].F_CMD[9].U_LCE:O)    | NONE(*)(ila/U0/I_NO_D.U_ILA/U_STAT/U_DIRTY_LDC)| 1     |
+CCLK                                                                      | CLK_DIV/DCM_SP_INST:CLKDV                      | 192   |
+SPI_FLASH/spiclk                                                          | NONE(SPI_FLASH/counter_6)                      | 7     |
+TXN/data_to_send_not0001(TXN/data_to_send_not00011:O)                     | NONE(*)(TXN/data_to_send_6)                    | 7     |
+TXN/return_cursor_home_done_not0001(TXN/return_cursor_home_done_not0001:O)| NONE(*)(TXN/return_cursor_home_done)           | 1     |
+--------------------------------------------------------------------------+------------------------------------------------+-------+
+(*) These 3 clock signal(s) are generated by combinatorial logic,
 and XST is not able to identify which are the primary clock signals.
 Please use the CLOCK_SIGNAL constraint to specify the clock signal(s) generated by combinatorial logic.
 INFO:Xst:2169 - HDL ADVISOR - Some clock signals were not automatically buffered by XST with BUFG/BUFR resources. Please use the buffer_type constraint in order to insert these buffers to the clock signals to help prevent skew problems.
@@ -741,7 +775,7 @@ Asynchronous Control Signals Information:
 -------------------------------------------------------------------------------------------------+--------------------------------------------------------------------------------------------------------------------------+-------+
 Control Signal                                                                                   | Buffer(FF name)                                                                                                          | Load  |
 -------------------------------------------------------------------------------------------------+--------------------------------------------------------------------------------------------------------------------------+-------+
-BTN0                                                                                             | IBUF                                                                                                                     | 112   |
+BTN0                                                                                             | IBUF                                                                                                                     | 164   |
 ila/N0(ila/XST_GND:G)                                                                            | NONE(ila/U0/I_NO_D.U_ILA/U_RST/U_POR)                                                                                    | 25    |
 icon/CONTROL0<20>(icon/U0/U_ICON/U_CTRL_OUT/F_NCP[0].F_CMD[0].U_HCE:O)                           | NONE(ila/U0/I_NO_D.U_ILA/U_TRIG/U_TM/G_NMU[0].U_M/U_MU/I_MUT_GAND.U_match/I_SRL16.U_GAND_SRL16/I_YES_IREG.F_TW[0].U_IREG)| 24    |
 icon/U0/U_ICON/U_CMD/iSEL_n(icon/U0/U_ICON/U_CMD/U_SEL_n:O)                                      | NONE(icon/U0/U_ICON/U_CMD/G_TARGET[10].I_NE0.U_TARGET)                                                                   | 10    |
@@ -760,8 +794,8 @@ Timing Summary:
 Speed Grade: -4
 
    Minimum period: 12.983ns (Maximum Frequency: 77.024MHz)
-   Minimum input arrival time before clock: 5.031ns
-   Maximum output required time after clock: 6.534ns
+   Minimum input arrival time before clock: 2.830ns
+   Maximum output required time after clock: 6.613ns
    Maximum combinational path delay: No path found
 
 =========================================================================
@@ -952,14 +986,14 @@ WARNING:Xst:1415 - No path found for this constraint.
 =========================================================================
 
 
-Total REAL time to Xst completion: 16.00 secs
-Total CPU time to Xst completion: 16.01 secs
+Total REAL time to Xst completion: 18.00 secs
+Total CPU time to Xst completion: 17.50 secs
  
 --> 
 
-Total memory usage is 270456 kilobytes
+Total memory usage is 272312 kilobytes
 
 Number of errors   :    0 (   0 filtered)
-Number of warnings :   21 (   0 filtered)
-Number of infos    :   66 (   0 filtered)
+Number of warnings :   29 (   0 filtered)
+Number of infos    :   69 (   0 filtered)
 

@@ -36,6 +36,13 @@ Model Technology ModelSim SE-64 vlog 10.0b Compiler 2011.05 May  5 2011
 Top level modules:
 	lcd_control
 
+} {} {}} {Z:/ECE 4211/HW7/physical.v} {1 {vlog -work work -vopt -nocovercells {Z:/ECE 4211/HW7/physical.v}
+Model Technology ModelSim SE-64 vlog 10.0b Compiler 2011.05 May  5 2011
+-- Compiling module physical
+
+Top level modules:
+	physical
+
 } {} {}} {Z:/ECE 4211/HW7/debounce.v} {1 {vlog -work work -vopt -nocovercells {Z:/ECE 4211/HW7/debounce.v}
 Model Technology ModelSim SE-64 vlog 10.0b Compiler 2011.05 May  5 2011
 -- Compiling module debounce_sync
@@ -49,13 +56,6 @@ Model Technology ModelSim SE-64 vlog 10.0b Compiler 2011.05 May  5 2011
 
 Top level modules:
 	m25p16_driver
-
-} {} {}} {Z:/ECE 4211/HW7/transaction.v} {1 {vlog -work work -vopt -nocovercells {Z:/ECE 4211/HW7/transaction.v}
-Model Technology ModelSim SE-64 vlog 10.0b Compiler 2011.05 May  5 2011
--- Compiling module transaction
-
-Top level modules:
-	transaction
 
 } {} {}} {Z:/ECE 4211/HW7/hex_to_ASCII.v} {1 {vlog -work work -vopt -nocovercells {Z:/ECE 4211/HW7/hex_to_ASCII.v}
 Model Technology ModelSim SE-64 vlog 10.0b Compiler 2011.05 May  5 2011

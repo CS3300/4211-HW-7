@@ -18,10 +18,11 @@ module command(
   output wire [3:0] LCDDAT
   );
 
-localparam IDLE = 2'b00;
-localparam WAIT_GET_RDID_DONE = 2'b01;
-localparam SEND_BYTE = 2'b10;
-localparam WAIT_DONE = 2'b11;
+localparam IDLE = 3'b00;
+localparam WAIT_GET_RDID_DONE = 3'b01;
+localparam SEND_BYTE = 3'b10;
+localparam WAIT_DONE = 3'b11;
+localparam RETURN_CURSOR_HOME = 3'b100;
 
 wire          CLKDV_OUT;      // divided clock, output of DCM
 wire          CLK0_OUT;
@@ -34,24 +35,26 @@ reg  [7:0]    data_to_write;
 wire          send_data_done;
 wire          get_rdid_oneshot;
 wire          get_rdid_done;
+reg           do_return_cursor_home;
+wire          return_cursor_home_done;
 reg  [127:0]  string_to_display;
 reg  [4:0]    display_counter;
-reg  [1:0]    current_state, next_state;
+reg  [2:0]    current_state, next_state;
 reg  [15:0]   man_ID_out, mem_TP_out, mem_CP_out;  // 2-digit displayed on LCD panel
 wire [7:0]    man_ID;
 wire [7:0]    mem_TP;
 wire [7:0]    mem_CP;
 wire [35:0]   CONTROL;
 
- // icon icon (
-     // .CONTROL0(CONTROL) // INOUT BUS [35:0]
- // );
+  icon icon (
+      .CONTROL0(CONTROL) // INOUT BUS [35:0]
+  );
 
- // ila ila (
-     // .CONTROL(CONTROL), // INOUT BUS [35:0]
-     // .CLK(CLK0_OUT), // IN
-     // .TRIG0({do_write_data,BTN0,CLKDV_OUT,SPIMOSI,SPIMISO,BTN1_debounced,get_rdid_oneshot,get_rdid_done, mem_CP_out}) // IN BUS [23:0]
- // );
+  ila ila (
+      .CONTROL(CONTROL), // INOUT BUS [35:0]
+      .CLK(CLK0_OUT), // IN
+      .TRIG0({do_write_data,BTN0,CLKDV_OUT,SPIMOSI,SPIMISO,BTN1_debounced,get_rdid_oneshot,get_rdid_done, mem_CP_out}) // IN BUS [23:0]
+  );
 
 
 
@@ -77,25 +80,19 @@ end
 always @(posedge CLKDV_OUT or posedge BTN0) begin
   if(BTN0) begin
   display_counter <= 5'h0; // tracks the current cell to write to
+  do_return_cursor_home <= 0;
   do_init <= 1;
   string_to_display <= 0;
   do_write_data <= 1'b0;
-  data_to_write <= 0;
   next_state <= 0;
-  man_ID_out <= 0;
-  mem_TP_out <= 0;
-  mem_CP_out <= 0;
   end else begin
   case(current_state)
     IDLE: begin
       do_write_data <= 1'b0;
-      if(~init_done)begin
-        do_init <= 1;
-      end else if (~reset_done) begin
-        do_init <= 0;
+      if (~reset_done) begin
         next_state <= IDLE;
       end else if(get_rdid_oneshot) begin
-        next_state <= WAIT_GET_RDID_DONE;
+        next_state <= RETURN_CURSOR_HOME;
         display_counter <= 5'h10;  // write to upper left cell
       end else begin
         do_init <= 0;
@@ -118,7 +115,8 @@ always @(posedge CLKDV_OUT or posedge BTN0) begin
 
     SEND_BYTE: begin
       if(get_rdid_oneshot) begin
-        next_state <= WAIT_GET_RDID_DONE;
+        next_state <= RETURN_CURSOR_HOME;
+        display_counter <= 5'h10;  // write to upper left cell
       end else if(display_counter!=0) begin
         next_state <= WAIT_DONE;
         do_write_data <= 1'b1;
@@ -130,7 +128,7 @@ always @(posedge CLKDV_OUT or posedge BTN0) begin
 
     WAIT_DONE: begin
       if(get_rdid_oneshot) begin
-        next_state <= WAIT_GET_RDID_DONE;
+        next_state <= RETURN_CURSOR_HOME;
       end else if(send_data_done) begin
         next_state <= SEND_BYTE;
         do_write_data <= 1'b0;
@@ -139,6 +137,16 @@ always @(posedge CLKDV_OUT or posedge BTN0) begin
         next_state <= WAIT_DONE;
         do_write_data <= 1'b1;
         end
+      end
+      
+      RETURN_CURSOR_HOME: begin
+      if(~return_cursor_home_done)begin
+        do_return_cursor_home <= 1;
+        next_state <= RETURN_CURSOR_HOME;
+      end else begin
+        do_return_cursor_home <= 0;
+        next_state <= WAIT_GET_RDID_DONE;
+      end
       end
   endcase
   end
@@ -180,20 +188,20 @@ end
 
 
 
- // clock_divider CLK_DIV(
-     // .CLKIN_IN(CCLK), 
-     // .RST_IN(BTN0), 
-     // .CLKDV_OUT(CLKDV_OUT),
-//     //.CLKIN_IBUFG_OUT(CLKIN_IBUFG_OUT), 
-     // .CLK0_OUT(CLK0_OUT)
-     // );
+  clock_divider CLK_DIV(
+      .CLKIN_IN(CCLK), 
+      .RST_IN(BTN0), 
+      .CLKDV_OUT(CLKDV_OUT),
+     ////.CLKIN_IBUFG_OUT(CLKIN_IBUFG_OUT), 
+      .CLK0_OUT(CLK0_OUT)
+      );
 
 
-clock_divider_tb CLK_DIV_TB(
-.clk_in(CCLK),
-.reset(BTN0),
-.clk_out(CLKDV_OUT)
-);
+// clock_divider_tb CLK_DIV_TB(
+// .clk_in(CCLK),
+// .reset(BTN0),
+// .clk_out(CLKDV_OUT)
+// );
 
 transaction TXN(
   .clk(CLKDV_OUT),
@@ -202,6 +210,8 @@ transaction TXN(
   .reset_done(reset_done),
   .do_write_data(do_write_data),
   .data_to_write(data_to_write),
+  .do_return_cursor_home(do_return_cursor_home),
+  .return_cursor_home_done(return_cursor_home_done),
   .LCDE_q(LCDE),
   .LCDRS_q(LCDRS),
   .LCDRW_q(LCDRW),
@@ -225,15 +235,15 @@ spi_master_flash SPI_FLASH(
 );
 
 
-// for use in testbench.
-m25p16 memory (
- .c(SPISCK),
- .data_in(SPIMOSI),
- .s(SPISF),
- .w(w),                // write protect; active low. assign to 1.
- .hold(hold),          // hold communication; active low. assign to 1.
- .data_out(SPIMISO)
-);
+//// for use in testbench.
+// m25p16 memory (
+// .c(SPISCK),
+// .data_in(SPIMOSI),
+// .s(SPISF),
+// .w(w),                // write protect; active low. assign to 1.
+// .hold(hold),          // hold communication; active low. assign to 1.
+// .data_out(SPIMISO)
+// );
 
 
 
